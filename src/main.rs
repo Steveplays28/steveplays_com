@@ -1,3 +1,4 @@
+use portfolio_website_rs::resource::project_deserializer::{self};
 use yew::prelude::*;
 use yew_router::prelude::*;
 
@@ -12,12 +13,6 @@ enum Route {
     Projects,
     #[at("/contact")]
     Contact,
-}
-
-pub struct Project<'a, 'b, 'c> {
-    name: &'a str,
-    link: &'b str,
-    image: &'c str,
 }
 
 fn main() {
@@ -93,62 +88,9 @@ fn nav_bar() -> Html {
 
 #[function_component(Home)]
 fn home() -> Html {
-    let projects: Vec<Project> = vec![
-        Project {
-            name: "Realistic Sleep",
-            link: "https://modrinth.com/mod/realisticsleep",
-            image: "https://github.com/Steveplays28/realisticsleep/raw/3420dc9ec26bdbdf3044f066744db67a605fb8f1/docs/media/realistic_sleep.gif",
-        },
-        Project {
-            name: "Path Under Fence Gates",
-            link: "https://modrinth.com/mod/pathunderfencegates",
-            image: "https://github.com/Steveplays28/pathunderfencegates/raw/4c2c9c086a9d85f47e369fd2ef8f958e2b37650d/docs/media/all_fixes.png",
-        },
-        Project {
-            name: "Restart Server",
-            link: "https://modrinth.com/mod/restart-server",
-            image: "https://github.com/Steveplays28/restart-server/raw/67bc815074a98eef71f3a49ceb8ea29206f095d1/docs/media/command_preview.png",
-        },
-        Project {
-            name: "Biome Fog",
-            link: "https://modrinth.com/mod/biome-fog",
-            image: "https://github.com/Steveplays28/biome-fog/raw/6601589138f1b70f72e39bc6bacfc2234299cc5c/docs/media/desert.png",
-        },
-        Project {
-            name: "Noisium",
-            link: "https://modrinth.com/mod/noisium",
-            image: "https://github.com/Steveplays28/noisium/raw/516028d5a32874054859792473602ae8b189edeb/assets/banner/banner_without_author_text_1920x1080.png",
-        },
-        Project {
-            name: "Blendium",
-            link: "https://modrinth.com/mod/blendium",
-            image: "https://github.com/Steveplays28/blendium/raw/21f987c7a59369952fe172850d20f3f20b073b00/assets/gallery/blendium_1.png",
-        },
-        Project {
-            name: "FICSIT.chat",
-            link: "https://ficsit.app/mod/FicsitChat",
-            image: "https://github.com/Steveplays28/FicsitChat/raw/bc7439443f313c6cc5fbc5c74706bbe79c5a6957/assets/ficsit_chat_icon_512x512.png",
-        },
-        Project {
-            name: "No More Long Handed Inserters",
-            link: "https://mods.factorio.com/mod/no-more-long-handed-inserters",
-            image: "https://github.com/Steveplays28/no-more-long-handed-inserters/raw/af336799d8530d6303fcae2ead07975536a4d0f8/thumbnail.png",
-        },
-        Project {
-            name: "Forgero (contributor)",
-            link: "https://modrinth.com/mod/forgero",
-            image: "https://github.com/SigmundGranaas/forgero/raw/6cece12e6a9f59109470bc375c136da3e1cc3698/assets/banner.png",
-        },
-        Project {
-            name: "Distant Horizons (contributor)",
-            link: "https://modrinth.com/mod/distanthorizons",
-            image: "https://wsrv.nl/?url=https%3A%2F%2Fmedia.forgecdn.net%2Fattachments%2F431%2F564%2Fcliff-side-2.png&n=-1",
-        }
-    ];
+    let projects = project_deserializer::deserialize_projects();
     let initial_project_animation_delay_seconds: f32 = 0.25;
-
     let mut index: i32 = 0;
-
     html! {
         <>
             <div class="bio-container">
@@ -167,12 +109,12 @@ fn home() -> Html {
             <div class="projects">
             {
                 projects.into_iter().map(|project| {
-                    let style = format!("animation-delay: {seconds}s; background-image: url({image});", seconds = (index as f32) / 4.0 + initial_project_animation_delay_seconds, image = project.image);
+                    let style = format!("animation-delay: {seconds}s; background-image: url({image});", seconds = (index as f32) / 4.0 + initial_project_animation_delay_seconds, image = project.image.clone());
                     index += 1;
 
                     html! {
-                        <a href={project.link} target="_blank" rel="noopener noreferrer" key={project.name} class="project" style={style}>
-                            <p class="project-title">{ project.name }</p>
+                        <a href={project.link.clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project" style={style}>
+                            <p class="project-title">{ project.name.clone() }</p>
                         </a>
                     }
                 }).collect::<Html>()

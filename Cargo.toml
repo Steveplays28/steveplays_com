@@ -1,6 +1,6 @@
 [package]
-name = "portfolio-website-rs"
-version = "0.1.0"
+name = "portfolio_website_rs"
+version = "2.0.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 yew = { version = "0.20", features = ["csr"] }
 yew-router = "0.17"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1"
