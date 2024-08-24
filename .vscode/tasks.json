@@ -4,9 +4,21 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "trunk serve --open",
+			"label": "start frontend",
 			"type": "shell",
 			"command": "trunk serve --open",
+			"options": {
+				"cwd": "frontend"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "start backend",
+			"type": "shell",
+			"command": "cargo watch -x run",
+			"options": {
+				"cwd": "backend"
+			},
 			"problemMatcher": []
 		}
 	]

@@ -1,5 +1,6 @@
-use portfolio_website_rs::resource::project_deserializer::{self};
-use yew::prelude::*;
+use common::data::project::Project;
+use gloo_net::http::Request;
+use yew::{platform::spawn_local, prelude::*};
 use yew_router::prelude::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Routable)]
@@ -66,19 +67,19 @@ fn nav_bar() -> Html {
 
                 <div class="nav-bar-element socials">
                     <a href="https://github.com/Steveplays28/portfolio-website-rs" target="_blank" rel="noopener noreferrer">
-                        <img src="/media/github-mark-white.svg" />
+                        <img src="/resources/logos/github-mark-white.svg" />
                     </a>
                     <a href="https://discord.gg/KbWxgGg" target="_blank" rel="noopener noreferrer">
-                        <img src="/media/discord-mark-white.svg" />
+                        <img src="/resources/logos/discord-mark-white.svg" />
                     </a>
                     <a href="https://www.youtube.com/steveplays28" target="_blank" rel="noopener noreferrer">
-                        <img src="/media/yt_icon_mono_dark.png" />
+                        <img src="/resources/logos/yt_icon_mono_dark.png" />
                     </a>
                     <a href="https://www.patreon.com/steveplays28" target="_blank" rel="noopener noreferrer">
-                        <img src="/media/Digital-Patreon-Logo_White.png" />
+                        <img src="/resources/logos/Digital-Patreon-Logo_White.png" />
                     </a>
                     <a href="https://ko-fi.com/steveplays" target="_blank" rel="noopener noreferrer">
-                        <img src="/media/kofi_s_logo_nolabel.svg" />
+                        <img src="/resources/logos/kofi_s_logo_nolabel.svg" />
                     </a>
                 </div>
             </div>
@@ -88,15 +89,36 @@ fn nav_bar() -> Html {
 
 #[function_component(Home)]
 fn home() -> Html {
-    let projects = project_deserializer::deserialize_projects();
+    let projects_option = use_state(|| None);
+    {
+        let projects = projects_option.clone();
+        use_effect(move || {
+            if projects.is_none() {
+                spawn_local(async move {
+                    let response = Request::get("/api/v1/index/projects").send().await.unwrap();
+                    if response.ok() {
+                        projects.set(Some(Ok(response.json::<Vec<Project>>().await.unwrap())));
+                    } else {
+                        projects.set(Some(Err(format!(
+                            "Error fetching data {} ({})",
+                            response.status(),
+                            response.status_text()
+                        ))));
+                    }
+                });
+            }
+
+            || {}
+        });
+    }
     let initial_project_animation_delay_seconds: f32 = 0.25;
     let mut index: i32 = 0;
     html! {
         <>
             <div class="bio-container">
                 <a href="https://github.com/Steveplays28" target="_blank" rel="noopener noreferrer" class="profile-picture-container">
-                    <img src="/media/steve_profile_picture.png" alt="Profile picture" class="profile-picture" />
-                    <img src="/media/github-mark-white-background.svg" alt="GitHub out link" class="github" />
+                    <img src="/resources/logos/steve_profile_picture.png" alt="Profile picture" class="profile-picture" />
+                    <img src="/resources/logos/github-mark-white-background.svg" alt="GitHub out link" class="github" />
                 </a>
 
                 <p class="bio">
@@ -108,16 +130,22 @@ fn home() -> Html {
 
             <div class="projects">
             {
-                projects.into_iter().map(|project| {
-                    let style = format!("animation-delay: {seconds}s; background-image: url({image});", seconds = (index as f32) / 4.0 + initial_project_animation_delay_seconds, image = project.image.clone());
-                    index += 1;
+                if let Some(Ok(projects)) = projects_option.as_ref() {
+                    projects.iter().map(|project| {
+                        let style = format!("animation-delay: {seconds}s; background-image: url({image});", seconds = (index as f32) / 4.0 + initial_project_animation_delay_seconds, image = project.image.clone());
+                        index += 1;
 
-                    html! {
-                        <a href={project.link.clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project" style={style}>
-                            <p class="project-title">{ project.name.clone() }</p>
-                        </a>
+                        html! {
+                            <a href={project.link.clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project" style={style}>
+                                <p class="project-title">{ project.name.clone() }</p>
+                            </a>
+                        }
+                    }).collect::<Html>()
+                } else {
+                    html ! {
+                        <p class="no-response">{ "No response from the server, you may be offline." }</p>
                     }
-                }).collect::<Html>()
+                }
             }
             </div>
         </>
@@ -144,51 +172,51 @@ pub fn contact() -> Html {
 
             <div class="socials contact-socials">
                 <a href="https://www.patreon.com/steveplays28" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/Digital-Patreon-Logo_White.png" />
+                    <img src="/resources/logos/Digital-Patreon-Logo_White.png" />
                 </a>
                 <a href="https://ko-fi.com/steveplays" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/kofi_s_logo_nolabel.svg" />
+                    <img src="/resources/logos/kofi_s_logo_nolabel.svg" />
                 </a>
                 <div class="gap"></div>
 
                 <a href="https://github.com/Steveplays28" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/github-mark-white.svg" />
+                    <img src="/resources/logos/github-mark-white.svg" />
                 </a>
                 <a href="https://gitlab.com/steveplays" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/gitlab-logo-700.svg" />
+                    <img src="/resources/logos/gitlab-logo-700.svg" />
                 </a>
                 <div class="gap"></div>
 
                 <a href="https://steveplays.itch.io" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/itchio-logo-textless-white.svg" />
+                    <img src="/resources/logos/itchio-logo-textless-white.svg" />
                 </a>
                 <a href="https://modrinth.com/user/Steveplays" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/modrinth-logo-white.svg" />
+                    <img src="/resources/logos/modrinth-logo-white.svg" />
                 </a>
                 <a href="https://www.curseforge.com/members/steveplays28" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/curseforge-logo-white.svg" />
+                    <img src="/resources/logos/curseforge-logo-white.svg" />
                 </a>
                 <div class="gap"></div>
 
                 <a href="https://www.youtube.com/steveplays28" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/yt_icon_mono_dark.png" />
+                    <img src="/resources/logos/yt_icon_mono_dark.png" />
                 </a>
                 <a href="https://twitch.tv/steveplays28" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/TwitchGlitchWhite.svg" />
+                    <img src="/resources/logos/TwitchGlitchWhite.svg" />
                 </a>
                 <div class="gap"></div>
 
                 <a href="https://discord.gg/KbWxgGg" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/discord-mark-white.svg" />
+                    <img src="/resources/logos/discord-mark-white.svg" />
                 </a>
                 <a href="https://rvlt.gg/gYXfebk5" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/revolt_chat_logo_white.png" />
+                    <img src="/resources/logos/revolt_chat_logo_white.png" />
                 </a>
                 <a href="https://mastodon.gamedev.place/@steveplays" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/mastodon-logo-white.svg" />
+                    <img src="/resources/logos/mastodon-logo-white.svg" />
                 </a>
                 <a href="https://twitter.com/steveplays28" target="_blank" rel="noopener noreferrer">
-                    <img src="/media/twitter-logo-white.svg" />
+                    <img src="/resources/logos/twitter-logo-white.svg" />
                 </a>
             </div>
         </>
