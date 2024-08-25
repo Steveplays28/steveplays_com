@@ -204,8 +204,11 @@ p {
 
 .project-title {
 	position: relative;
-	width: 100%;
 	margin-top: auto;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 5px;
+	background-color: rgba(128, 128, 128, 0.5);
 	font-size: 1vw;
 	text-align: center;
 	transition: font-size 0.5s ease-in-out, margin-top 0.5s ease-in-out;
