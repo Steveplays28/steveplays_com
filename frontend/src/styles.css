@@ -17,7 +17,7 @@ body {
 	height: 100vh;
 	perspective: 25em;
 	font-family: 'Rubik', sans-serif;
-	background-size: 500vh 500vh;
+	background-size: 1000vh 1000vh;
 
 	animation: background-movement 60s ease infinite;
 }
@@ -102,7 +102,7 @@ a {
 
 .bio {
 	color: white;
-	font-size: 1.5vw;
+	font-size: clamp(2rem, 1.5vw, 5rem);
 	transition: font-size 0.5s ease-in-out;
 }
 
@@ -111,15 +111,18 @@ a {
 	font-size: larger;
 	transition: font-size 0.5s ease-in-out;
 
+	visibility: hidden;
 	opacity: 0;
-	animation: 0.5s ease-in-out 5s fade-in;
+	animation: 0.5s ease-in-out 5s fade-in forwards;
 }
 
 @keyframes fade-in {
 	0% {
+		visibility: visible;
 		opacity: 0;
 	}
 	100% {
+		visibility: visible;
 		opacity: 1;
 	}
 }
@@ -168,8 +171,10 @@ p {
 
 .project {
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	aspect-ratio: 16/9;
 	width: 20vw;
-	height: 23.5vh;
 	margin-top: 1vh;
 	margin-bottom: 8vh;
 	background-color: #443c68;
@@ -195,11 +200,11 @@ p {
 }
 
 .project-title {
+	position: relative;
+	width: 100%;
+	margin-top: auto;
 	font-size: 1vw;
-	margin-top: 25vh;
-	width: max-content;
-	margin-left: auto;
-	margin-right: auto;
+	text-align: center;
 	transition: font-size 0.5s ease-in-out, margin-top 0.5s ease-in-out;
 }
 
@@ -300,7 +305,7 @@ p {
 	}
 
 	.bio {
-		font-size: 3vw;
+		font-size: clamp(2rem, 3vw, 5rem);
 		transition: font-size 0.5s ease-in-out;
 	}
 
@@ -365,6 +370,7 @@ p {
 	}
 
 	.project {
+		aspect-ratio: 16/9;
 		width: 80vw;
 		height: 20vh;
 		transition: width 0.5s ease-in-out, width 0.5s ease-in-out,
