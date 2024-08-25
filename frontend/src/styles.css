@@ -6,6 +6,9 @@ body {
 	/* Scrollbar */
 	scrollbar-color: #c57df8 #1e192e;
 	scrollbar-width: thin;
+	/* Overscroll */
+	overscroll-behavior: auto;
+	background: rgba(36, 31, 53, 1);
 }
 
 body {
