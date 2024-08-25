@@ -11,7 +11,7 @@ static PROJECTS_JSON: String = {
     for project in glob("resources/**/*.json").expect("glob should have a correct pattern") {
         projects.push(
             serde_json::from_str(
-                &fs::read_to_string(&project.expect("`project` path should be readable by glob"))
+                &fs::read_to_string(project.expect("`project` path should be readable by glob"))
                     .unwrap(),
             )
             .expect("serde should be able to parse `project`"),
