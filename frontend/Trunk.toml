@@ -1,9 +1,3 @@
 [build]
 target = "index.html"
 dist = "dist"
-
-[[proxy]]
-# Requests received on `rewrite` will be proxied to the backend after stripping the `rewrite`
-# E.G., `/api/v1/resource/x/y/z` -> `/resource/x/y/z`
-rewrite = "/api/v1/"
-backend = "http://localhost:8000/"

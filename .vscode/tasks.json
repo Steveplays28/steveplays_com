@@ -4,9 +4,9 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "start frontend",
+			"label": "build frontend",
 			"type": "shell",
-			"command": "trunk serve --open",
+			"command": "trunk build",
 			"options": {
 				"cwd": "frontend"
 			},
