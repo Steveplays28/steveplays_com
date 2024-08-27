@@ -5,7 +5,7 @@ RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ca
 RUN cargo binstall --no-confirm --locked trunk
 
 WORKDIR /usr/src/portfolio_website
-COPY ./ ./
+COPY . .
 
 RUN trunk build ./frontend/index.html
 RUN cargo build --release
