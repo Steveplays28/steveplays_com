@@ -10,6 +10,6 @@ RUN cargo build --release
 # TODO: Add a configuration option for the resources folder
 RUN cp -r backend/resources target/release/resources && rm -rf backend/resources
 # TODO: Add a configuration option for the dist folder
-RUN cp -r frontend/dist target/frontend/dist && rm -rf frontend/dist
+RUN mkdir target/frontend && cp -r frontend/dist target/frontend/dist && rm -rf frontend/dist
 
 CMD ["./target/release/backend"]
