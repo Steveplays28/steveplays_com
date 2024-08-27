@@ -1,7 +1,7 @@
 FROM rust:1
 
 RUN rustup target add wasm32-unknown-unknown
-RUN cargo install --no-confirm --locked trunk
+RUN cargo install --locked trunk
 
 WORKDIR /usr/src/portfolio_website
 COPY . .
