@@ -5,7 +5,6 @@ use std::str::FromStr;
 use backend::routes::index::{self};
 use clap::Parser;
 use common::ui::components::{switch, NavBar, Route};
-use rocket::fs::relative;
 use rocket::fs::FileServer;
 use rocket::http::Method;
 use rocket::http::Status;
