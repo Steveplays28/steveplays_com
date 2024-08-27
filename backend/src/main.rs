@@ -2,8 +2,8 @@ use std::fs;
 use std::path::PathBuf;
 use std::str::FromStr;
 
+use backend::cli::arguments::ARGS;
 use backend::routes::index::{self};
-use clap::Parser;
 use common::ui::components::{switch, NavBar, Route};
 use rocket::fs::FileServer;
 use rocket::http::Method;
@@ -11,7 +11,6 @@ use rocket::http::Status;
 use rocket::response::content::RawHtml;
 use rocket::route::{Handler, Outcome};
 use rocket::{Data, Request};
-use static_init::dynamic;
 use yew::prelude::*;
 use yew::ServerRenderer;
 use yew_router::history::AnyHistory;
@@ -21,17 +20,6 @@ use yew_router::prelude::*;
 
 #[macro_use]
 extern crate rocket;
-
-#[derive(Parser, Debug)]
-#[command(version, about, long_about = None)]
-struct Args {
-    /// The path of the backend's resources directory.
-    #[arg(short, long, default_value_t = String::from("./resources"))]
-    backend_resources_path: String,
-    /// The path of the frontend's dist directory.
-    #[arg(short, long, default_value_t = String::from("../frontend/dist"))]
-    frontend_dist_path: String,
-}
 
 #[derive(Properties, PartialEq, Debug)]
 struct ServerAppProps {
@@ -66,9 +54,6 @@ impl From<CustomHandler> for Vec<rocket::route::Route> {
     }
 }
 
-#[dynamic]
-static ARGS: Args = Args::parse();
-
 #[get("/status")]
 fn status() -> &'static str {
     "OK"
@@ -77,11 +62,11 @@ fn status() -> &'static str {
 #[get("/<path..>")]
 async fn render(path: PathBuf) -> RawHtml<String> {
     let index_html = fs::read_to_string(
-        fs::canonicalize(PathBuf::from(&ARGS.frontend_dist_path))
-            .unwrap()
+        dunce::canonicalize(PathBuf::from(&ARGS.frontend_dist_path))
+            .expect("Should be able to access `frontend_dist_path`.")
             .join("index.html"),
     )
-    .unwrap();
+    .expect("Should be able to read index.html.");
     let server_app_props = ServerAppProps { path };
     let content_html = ServerRenderer::<ServerApp>::with_props(|| server_app_props)
         .render()
@@ -97,15 +82,18 @@ fn rocket() -> _ {
         .mount(
             "/projects",
             FileServer::from(
-                fs::canonicalize(PathBuf::from(&ARGS.backend_resources_path))
-                    .unwrap()
+                dunce::canonicalize(PathBuf::from(&ARGS.backend_resources_path))
+                    .expect("Should be able to access `backend_resources_path`.")
                     .join("projects"),
             ),
         )
         .mount(
             "/",
-            FileServer::from(fs::canonicalize(PathBuf::from(&ARGS.frontend_dist_path)).unwrap())
-                .rank(0),
+            FileServer::from(
+                dunce::canonicalize(PathBuf::from(&ARGS.frontend_dist_path))
+                    .expect("Should be able to access `frontend_dist_path`."),
+            )
+            .rank(0),
         )
         .mount("/", CustomHandler())
 }
