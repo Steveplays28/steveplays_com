@@ -12,3 +12,4 @@ glob = "0.3.1"
 static_init = "1.0.3"
 yew = { version = "0.21", features = ["ssr"] }
 yew-router = "0.18"
+clap = { version = "4.5.16", features = ["derive"] }

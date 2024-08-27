@@ -3,6 +3,7 @@ use std::path::PathBuf;
 use std::str::FromStr;
 
 use backend::routes::index::{self};
+use clap::Parser;
 use common::ui::components::{switch, NavBar, Route};
 use rocket::fs::relative;
 use rocket::fs::FileServer;
@@ -11,6 +12,7 @@ use rocket::http::Status;
 use rocket::response::content::RawHtml;
 use rocket::route::{Handler, Outcome};
 use rocket::{Data, Request};
+use static_init::dynamic;
 use yew::prelude::*;
 use yew::ServerRenderer;
 use yew_router::history::AnyHistory;
@@ -20,6 +22,17 @@ use yew_router::prelude::*;
 
 #[macro_use]
 extern crate rocket;
+
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+struct Args {
+    /// The path of the backend's resources directory.
+    #[arg(short, long, default_value_t = String::from("./resources"))]
+    backend_resources_path: String,
+    /// The path of the frontend's dist directory.
+    #[arg(short, long, default_value_t = String::from("../frontend/dist"))]
+    frontend_dist_path: String,
+}
 
 #[derive(Properties, PartialEq, Debug)]
 struct ServerAppProps {
@@ -54,6 +67,9 @@ impl From<CustomHandler> for Vec<rocket::route::Route> {
     }
 }
 
+#[dynamic]
+static ARGS: Args = Args::parse();
+
 #[get("/status")]
 fn status() -> &'static str {
     "OK"
@@ -61,7 +77,12 @@ fn status() -> &'static str {
 
 #[get("/<path..>")]
 async fn render(path: PathBuf) -> RawHtml<String> {
-    let index_html = fs::read_to_string("../frontend/dist/index.html").unwrap();
+    let index_html = fs::read_to_string(
+        fs::canonicalize(PathBuf::from(&ARGS.frontend_dist_path))
+            .unwrap()
+            .join("index.html"),
+    )
+    .unwrap();
     let server_app_props = ServerAppProps { path };
     let content_html = ServerRenderer::<ServerApp>::with_props(|| server_app_props)
         .render()
@@ -76,11 +97,16 @@ fn rocket() -> _ {
         .mount("/index", routes![index::projects])
         .mount(
             "/projects",
-            FileServer::from(relative!("resources/projects/")),
+            FileServer::from(
+                fs::canonicalize(PathBuf::from(&ARGS.backend_resources_path))
+                    .unwrap()
+                    .join("projects"),
+            ),
         )
         .mount(
             "/",
-            FileServer::from(relative!("../frontend/dist/")).rank(0),
+            FileServer::from(fs::canonicalize(PathBuf::from(&ARGS.frontend_dist_path)).unwrap())
+                .rank(0),
         )
         .mount("/", CustomHandler())
 }
