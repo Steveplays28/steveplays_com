@@ -13,31 +13,25 @@ static PROJECTS_JSON: String = {
     for project in glob(&format!(
         "{}/{}",
         dunce::canonicalize(PathBuf::from(&ARGS.backend_resources_path))
-            .expect("Should be able to access `backend_resources_path`.")
+            .expect("Should be able to access `backend_resources_path`")
             .join("projects")
             .to_str()
             .unwrap(),
         "**/*.json"
     ))
-    .expect("glob should have a correct pattern.")
+    .expect("glob should have a correct pattern")
     {
         projects.push(
             serde_json::from_str(
-                &fs::read_to_string(project.expect("`project` path should be readable by glob."))
+                &fs::read_to_string(project.expect("`project` path should be readable by glob"))
                     .unwrap(),
             )
-            .expect("serde should be able to parse `project`."),
+            .expect("serde should be able to parse `project`"),
         );
     }
 
-    println!("{}", dunce::canonicalize(PathBuf::from(&ARGS.backend_resources_path))
-            .expect("Should be able to access `backend_resources_path`.")
-            .join("projects")
-            .to_str()
-            .unwrap());
-
     return serde_json::to_string::<Vec<Project>>(&projects)
-        .expect("serde should be able to serialize `projects`.");
+        .expect("serde should be able to serialize `projects`");
 };
 
 #[get("/projects")]

@@ -63,7 +63,7 @@ fn status() -> &'static str {
 async fn render(path: PathBuf) -> RawHtml<String> {
     let index_html = fs::read_to_string(
         dunce::canonicalize(PathBuf::from(&ARGS.frontend_dist_path))
-            .expect("Should be able to access `frontend_dist_path`.")
+            .expect("Should be able to access `frontend_dist_path`")
             .join("index.html"),
     )
     .expect("Should be able to read index.html.");
@@ -83,7 +83,7 @@ fn rocket() -> _ {
             "/projects",
             FileServer::from(
                 dunce::canonicalize(PathBuf::from(&ARGS.backend_resources_path))
-                    .expect("Should be able to access `backend_resources_path`.")
+                    .expect("Should be able to access `backend_resources_path`")
                     .join("projects"),
             ),
         )
@@ -91,7 +91,7 @@ fn rocket() -> _ {
             "/",
             FileServer::from(
                 dunce::canonicalize(PathBuf::from(&ARGS.frontend_dist_path))
-                    .expect("Should be able to access `frontend_dist_path`."),
+                    .expect("Should be able to access `frontend_dist_path`"),
             )
             .rank(0),
         )
