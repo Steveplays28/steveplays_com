@@ -1,6 +1,5 @@
-use std::{env, fs};
+use std::fs;
 use std::path::PathBuf;
-use std::process::Command;
 use std::str::FromStr;
 
 use backend::cli::arguments::ARGS;
@@ -77,18 +76,6 @@ async fn render(path: PathBuf) -> RawHtml<String> {
 
 #[launch]
 fn rocket() -> _ {
-    // DEBUG
-    println!(
-        "File tree: {:#?}",
-        Command::new("trs")
-            .current_dir(env::current_dir().unwrap())
-            .arg("-f")
-            .output()
-            .expect("Failed to execute command")
-            .stdout
-            .as_slice()
-    );
-
     rocket::build()
         .mount("/", routes![status])
         .mount("/index", routes![index::projects])
