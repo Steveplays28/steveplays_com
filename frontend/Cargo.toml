@@ -3,6 +3,9 @@ name = "frontend"
 version = "2.0.0"
 edition = "2021"
 
+[profile.release]
+panic = 'abort'
+
 [dependencies]
 common = { version = "*", path = "../common" }
 yew = { version = "0.21", features = ["hydration"] }
