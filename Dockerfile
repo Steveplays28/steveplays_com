@@ -9,4 +9,4 @@ COPY . .
 RUN trunk build frontend/index.html
 RUN cargo build --release
 
-CMD ["target/release/backend", "-b backend/resources", "-f frontend/dist"]
+ENTRYPOINT ["target/release/backend", "-b backend/resources", "-f frontend/dist"]
