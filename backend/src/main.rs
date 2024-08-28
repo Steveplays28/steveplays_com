@@ -1,5 +1,5 @@
 use std::fs;
-use std::path::PathBuf;
+// use std::path::PathBuf;
 use std::str::FromStr;
 
 use backend::cli::arguments::ARGS;
@@ -61,7 +61,7 @@ fn status() -> &'static str {
 
 #[get("/<path..>")]
 async fn render(path: PathBuf) -> RawHtml<String> {
-    let index_html = fs::read_to_string(PathBuf::from(&ARGS.frontend_dist_path).join("index.html"))
+    let index_html = fs::read_to_string(ARGS.frontend_dist_path.join("index.html"))
         .expect("Should be able to read index.html.");
     let server_app_props = ServerAppProps { path };
     let content_html = ServerRenderer::<ServerApp>::with_props(|| server_app_props)
@@ -77,12 +77,9 @@ fn rocket() -> _ {
         .mount("/index", routes![index::projects])
         .mount(
             "/projects",
-            FileServer::from(PathBuf::from(&ARGS.backend_resources_path).join("projects")),
+            FileServer::from(ARGS.backend_resources_path.join("projects")),
         )
-        .mount(
-            "/",
-            FileServer::from(PathBuf::from(&ARGS.frontend_dist_path)).rank(0),
-        )
+        .mount("/", FileServer::from(&ARGS.frontend_dist_path).rank(0))
         .mount("/", CustomHandler())
 }
 

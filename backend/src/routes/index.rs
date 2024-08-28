@@ -1,4 +1,4 @@
-use std::{fs, path::PathBuf};
+use std::fs;
 
 use common::data::project::Project;
 use glob::glob;
@@ -12,7 +12,7 @@ static PROJECTS_JSON: String = {
     let mut projects: Vec<Project> = Vec::new();
     for project in glob(&format!(
         "{}/{}",
-        PathBuf::from(&ARGS.backend_resources_path)
+        ARGS.backend_resources_path
             .join("projects")
             .to_str()
             .unwrap(),
