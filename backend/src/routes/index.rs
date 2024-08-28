@@ -12,8 +12,7 @@ static PROJECTS_JSON: String = {
     let mut projects: Vec<Project> = Vec::new();
     for project in glob(&format!(
         "{}/{}",
-        dunce::canonicalize(PathBuf::from(&ARGS.backend_resources_path))
-            .expect("Should be able to access `backend_resources_path`")
+        PathBuf::from(&ARGS.backend_resources_path)
             .join("projects")
             .to_str()
             .unwrap(),
