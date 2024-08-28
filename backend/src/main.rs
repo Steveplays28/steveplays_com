@@ -61,12 +61,8 @@ fn status() -> &'static str {
 
 #[get("/<path..>")]
 async fn render(path: PathBuf) -> RawHtml<String> {
-    let index_html = fs::read_to_string(
-        dunce::canonicalize(PathBuf::from(&ARGS.frontend_dist_path))
-            .expect("Should be able to access `frontend_dist_path`")
-            .join("index.html"),
-    )
-    .expect("Should be able to read index.html.");
+    let index_html = fs::read_to_string(PathBuf::from(&ARGS.frontend_dist_path).join("index.html"))
+        .expect("Should be able to read index.html.");
     let server_app_props = ServerAppProps { path };
     let content_html = ServerRenderer::<ServerApp>::with_props(|| server_app_props)
         .render()
@@ -81,19 +77,11 @@ fn rocket() -> _ {
         .mount("/index", routes![index::projects])
         .mount(
             "/projects",
-            FileServer::from(
-                dunce::canonicalize(PathBuf::from(&ARGS.backend_resources_path))
-                    .expect("Should be able to access `backend_resources_path`")
-                    .join("projects"),
-            ),
+            FileServer::from(PathBuf::from(&ARGS.backend_resources_path).join("projects")),
         )
         .mount(
             "/",
-            FileServer::from(
-                dunce::canonicalize(PathBuf::from(&ARGS.frontend_dist_path))
-                    .expect("Should be able to access `frontend_dist_path`"),
-            )
-            .rank(0),
+            FileServer::from(PathBuf::from(&ARGS.frontend_dist_path)).rank(0),
         )
         .mount("/", CustomHandler())
 }
