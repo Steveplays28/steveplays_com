@@ -61,8 +61,11 @@ fn status() -> &'static str {
 
 #[get("/<path..>")]
 async fn render(path: PathBuf) -> RawHtml<String> {
-    let index_html = fs::read_to_string(ARGS.frontend_dist_path.join("index.html"))
-        .expect("Should be able to read index.html.");
+    let index_html = fs::read_to_string(
+        dunce::canonicalize(ARGS.frontend_dist_path.join("index.html"))
+            .expect("Should be able to canonicalize `frontend_dist_path`"),
+    )
+    .expect("Should be able to read index.html.");
     let server_app_props = ServerAppProps { path };
     let content_html = ServerRenderer::<ServerApp>::with_props(|| server_app_props)
         .render()
@@ -77,9 +80,19 @@ fn rocket() -> _ {
         .mount("/index", routes![index::projects])
         .mount(
             "/projects",
-            FileServer::from(ARGS.backend_resources_path.join("projects")),
+            FileServer::from(
+                dunce::canonicalize(ARGS.backend_resources_path.join("projects"))
+                    .expect("Should be able to canonicalize `backend_resources_path`"),
+            ),
         )
-        .mount("/", FileServer::from(&ARGS.frontend_dist_path).rank(0))
+        .mount(
+            "/",
+            FileServer::from(
+                dunce::canonicalize(ARGS.frontend_dist_path.join("index.html"))
+                    .expect("Should be able to canonicalize `frontend_dist_path`"),
+            )
+            .rank(0),
+        )
         .mount("/", CustomHandler())
 }
 
