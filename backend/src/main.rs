@@ -5,6 +5,7 @@ use std::str::FromStr;
 use backend::cli::arguments::ARGS;
 use backend::routes::index::{self};
 use common::ui::components::{switch, NavBar, Route};
+use normpath::PathExt;
 use rocket::fs::FileServer;
 use rocket::http::Method;
 use rocket::http::Status;
@@ -62,8 +63,9 @@ fn status() -> &'static str {
 #[get("/<path..>")]
 async fn render(path: PathBuf) -> RawHtml<String> {
     let index_html = fs::read_to_string(
-        dunce::canonicalize(ARGS.frontend_dist_path.join("index.html"))
-            .expect("Should be able to canonicalize `frontend_dist_path`"),
+        ARGS.frontend_dist_path
+            .normalize()
+            .expect("Should be able to normalize `frontend_dist_path`"),
     )
     .expect("Should be able to read index.html.");
     let server_app_props = ServerAppProps { path };
@@ -81,15 +83,18 @@ fn rocket() -> _ {
         .mount(
             "/projects",
             FileServer::from(
-                dunce::canonicalize(ARGS.backend_resources_path.join("projects"))
-                    .expect("Should be able to canonicalize `backend_resources_path`"),
+                ARGS.backend_resources_path
+                    .join("projects")
+                    .normalize()
+                    .expect("Should be able to normalize the backend projects path"),
             ),
         )
         .mount(
             "/",
             FileServer::from(
-                dunce::canonicalize(&ARGS.frontend_dist_path)
-                    .expect("Should be able to canonicalize `frontend_dist_path`"),
+                ARGS.frontend_dist_path
+                    .normalize()
+                    .expect("Should be able to normalize `frontend_dist_path`"),
             )
             .rank(0),
         )
