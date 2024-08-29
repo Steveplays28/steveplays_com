@@ -65,9 +65,10 @@ async fn render(path: PathBuf) -> RawHtml<String> {
     let index_html = fs::read_to_string(
         ARGS.frontend_dist_path
             .normalize()
-            .expect("Should be able to normalize `frontend_dist_path`"),
+            .expect("Should be able to normalize `frontend_dist_path`")
+            .join("index.html"),
     )
-    .expect("Should be able to read index.html.");
+    .expect("Should be able to read index.html");
     let server_app_props = ServerAppProps { path };
     let content_html = ServerRenderer::<ServerApp>::with_props(|| server_app_props)
         .render()
