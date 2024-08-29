@@ -15,7 +15,7 @@
 		{
 			"label": "start backend",
 			"type": "shell",
-			"command": "cargo watch -x run",
+			"command": "cargo watch -x 'run -- -b resources -f ../frontend/dist'",
 			"options": {
 				"cwd": "backend"
 			},
