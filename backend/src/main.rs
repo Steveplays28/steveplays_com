@@ -88,7 +88,7 @@ fn rocket() -> _ {
         .mount(
             "/",
             FileServer::from(
-                dunce::canonicalize(ARGS.frontend_dist_path.join("index.html"))
+                dunce::canonicalize(&ARGS.frontend_dist_path)
                     .expect("Should be able to canonicalize `frontend_dist_path`"),
             )
             .rank(0),
