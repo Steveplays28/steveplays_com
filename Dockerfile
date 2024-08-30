@@ -28,7 +28,7 @@ ARG pkg=backend
 WORKDIR /app
 
 ## Copy the main binary
-COPY --from=build /build/target/release/$pkg ./
+COPY --from=build /build/release/$pkg ./
 
 ## Copy runtime assets which may or may not exist
 COPY --from=build /build/Rocket.tom[l] ./static
