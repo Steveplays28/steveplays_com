@@ -14,7 +14,9 @@ RUN --mount=type=cache,target=/build/target \
     --mount=type=cache,target=/usr/local/cargo/git \
     set -eux; \
 	trunk build frontend/index.html; \
-    cargo build --release;
+    cargo build --release; \
+	mkdir ./release \
+	cp target/release/$pkg ./release
 
 ################################################################################
 
@@ -37,4 +39,4 @@ COPY --from=build /build/template[s] ./templates
 COPY --from=build /build/backend/resources ./backend
 COPY --from=build /build/frontend/dist ./frontend
 
-ENTRYPOINT ["$pkg", "-b", "backend/resources", "-f", "frontend/dist"]
+ENTRYPOINT ["release/$pkg", "-b", "backend/resources", "-f", "frontend/dist"]
