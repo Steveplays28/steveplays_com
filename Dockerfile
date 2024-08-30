@@ -14,17 +14,19 @@ RUN --mount=type=cache,target=/build/target \
     --mount=type=cache,target=/usr/local/cargo/git \
     set -eux; \
 	trunk build frontend/index.html; \
-    cargo build --release; \
-    objcopy --compress-debug-sections target/release/$pkg ./$pkg
+    cargo build --release;
 
 ################################################################################
 
 FROM docker.io/debian:bookworm-slim
 
+# Set the Cargo package name
+ARG pkg=backend
+
 WORKDIR /app
 
 ## Copy the main binary
-COPY --from=build /build/$pkg ./
+COPY --from=build /build/target/release/$pkg ./
 
 ## Copy runtime assets which may or may not exist
 COPY --from=build /build/Rocket.tom[l] ./static
