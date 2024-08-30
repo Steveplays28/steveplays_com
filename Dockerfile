@@ -36,7 +36,7 @@ COPY --from=build /build/stati[c] ./static
 COPY --from=build /build/template[s] ./templates
 
 ## Copy static assets
-COPY --from=build /build/backend/resources ./backend
-COPY --from=build /build/frontend/dist ./frontend
+COPY --from=build /build/backend/resources ./backend/
+COPY --from=build /build/frontend/dist ./frontend/
 
 ENTRYPOINT ["release/$pkg", "-b", "backend/resources", "-f", "frontend/dist"]
