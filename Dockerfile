@@ -15,8 +15,8 @@ RUN --mount=type=cache,target=/build/target \
     set -eux; \
 	trunk build frontend/index.html; \
     cargo build --release; \
-	mkdir ./release \
-	cp target/release/$pkg ./release
+	mkdir ./release; \
+	cp target/release/$pkg ./release;
 
 ################################################################################
 
