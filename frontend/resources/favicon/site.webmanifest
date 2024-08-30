@@ -1,6 +1,6 @@
 {
     "name": "Steveplays' portfolio",
-    "short_name": "Steve's portfolio",
+    "short_name": "Steve's PF",
     "icons": [
        {
           "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
         "type": "image/png"
         }
     ],
-    "theme_color": "#FFFFFF",
-    "background_color": "#FFFFFF",
+    "theme_color": "#afd4fd",
+    "background_color": "#afd4fd",
     "display": "standalone"
  }
