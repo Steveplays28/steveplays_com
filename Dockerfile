@@ -1,7 +1,7 @@
 FROM docker.io/rust:1-slim-bookworm AS build
 
-# Set the Cargo package name
-ARG pkg=backend
+ARG backend_package=backend
+ARG frontend_package=frontend
 
 RUN rustup target add wasm32-unknown-unknown
 RUN cargo install --locked trunk
@@ -13,22 +13,22 @@ RUN --mount=type=cache,target=/build/target \
     --mount=type=cache,target=/usr/local/cargo/registry \
     --mount=type=cache,target=/usr/local/cargo/git \
     set -eux; \
-	trunk build frontend/index.html; \
+	trunk build $frontend_package/index.html; \
     cargo build --release; \
 	mkdir ./release; \
-	cp target/release/$pkg ./release;
+	cp target/release/$backend_package ./release;
 
 ################################################################################
 
 FROM docker.io/debian:bookworm-slim
 
-# Set the Cargo package name
-ARG pkg=backend
+ARG backend_package=backend
+ARG frontend_package=frontend
 
 WORKDIR /app
 
 ## Copy the main binary
-COPY --from=build /build/release/$pkg ./
+COPY --from=build /build/release/$backend_package ./release
 
 ## Copy runtime assets which may or may not exist
 COPY --from=build /build/Rocket.tom[l] ./static
@@ -36,7 +36,7 @@ COPY --from=build /build/stati[c] ./static
 COPY --from=build /build/template[s] ./templates
 
 ## Copy static assets
-COPY --from=build /build/backend/resources ./backend/
-COPY --from=build /build/frontend/dist ./frontend/
+COPY --from=build /build/$backend_package/resources ./$backend_package
+COPY --from=build /build/$frontend_package/dist ./$frontend_package
 
-ENTRYPOINT ["release/$pkg", "-b", "backend/resources", "-f", "frontend/dist"]
+ENTRYPOINT ["release/$backend_package", "-b", "$backend_package/resources", "-f", "$frontend_package/dist"]
