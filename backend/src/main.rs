@@ -33,7 +33,7 @@ struct CustomHandler();
 #[rocket::async_trait]
 impl Handler for CustomHandler {
     async fn handle<'r>(&self, req: &'r Request<'_>, data: Data<'r>) -> Outcome<'r> {
-        let route = req.segments::<PathBuf>(0..).unwrap();
+        let route = req.segments::<PathBuf>(0..).unwrap_or_default();
         let route_result = Route::from_str(route.to_str().unwrap());
         if route_result.is_ok() {
             Outcome::from(
