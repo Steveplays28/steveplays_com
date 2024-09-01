@@ -58,6 +58,25 @@ jobs:
                       type=sha
                       type=raw,value=latest,enable={{is_default_branch}}
 
+            - name: Cache
+              uses: actions/cache@v3
+              id: cache
+              with:
+                  path: |
+                      usr-local-cargo-registry
+                      usr-local-cargo-git
+                  key: cache-${{ hashFiles('Dockerfile') }}
+
+            - name: Inject cache into Docker
+              uses: reproducible-containers/buildkit-cache-dance@v3.1.0
+              with:
+                  cache-map: |
+                      {
+                      "usr-local-cargo-registry": "/usr/local/cargo/registry",
+                      "usr-local-cargo-git": "/usr/local/cargo/git"
+                      }
+                  skip-extraction: ${{ steps.cache.outputs.cache-hit }}
+
             - name: Build and push Docker image
               uses: docker/build-push-action@v6
               with:

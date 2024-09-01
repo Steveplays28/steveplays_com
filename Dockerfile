@@ -9,9 +9,11 @@ RUN cargo install --locked trunk
 WORKDIR /build
 COPY . .
 
-RUN set -eux
-RUN trunk build $frontend_package/index.html
-RUN cargo build --release
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=/usr/local/cargo/git \
+    set -eux; \
+	trunk build $frontend_package/index.html; \
+    cargo build --release;
 
 ################################################################################
 
