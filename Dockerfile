@@ -14,9 +14,7 @@ RUN --mount=type=cache,target=/build/target \
     --mount=type=cache,target=/usr/local/cargo/git \
     set -eux; \
 	trunk build $frontend_package/index.html; \
-    cargo build --release; \
-	mkdir ./release; \
-	cp target/release/$backend_package ./release;
+    cargo build --release;
 
 ################################################################################
 
@@ -28,7 +26,7 @@ ARG frontend_package=frontend
 WORKDIR /app
 
 ## Copy the main binary
-COPY --from=build /build/release/$backend_package ./release
+COPY --from=build /build/target/release/$backend_package ./release
 
 ## Copy runtime assets which may or may not exist
 COPY --from=build /build/Rocket.tom[l] ./static
@@ -39,4 +37,4 @@ COPY --from=build /build/template[s] ./templates
 COPY --from=build /build/$backend_package/resources ./$backend_package
 COPY --from=build /build/$frontend_package/dist ./$frontend_package
 
-ENTRYPOINT ["release/backend", "-b", "backend/resources", "-f", "frontend/dist"]
+ENTRYPOINT ["./release/backend", "-b", "backend/resources", "-f", "frontend/dist"]
