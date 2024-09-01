@@ -24,7 +24,7 @@ ARG frontend_package=frontend
 WORKDIR /app
 
 ## Copy the main binary
-COPY --from=build /build/target/release/$backend_package ./release
+COPY --from=build /build/target/release/$backend_package ./release/$backend_package
 
 ## Copy runtime assets which may or may not exist
 COPY --from=build /build/Rocket.tom[l] ./static
@@ -32,7 +32,8 @@ COPY --from=build /build/stati[c] ./static
 COPY --from=build /build/template[s] ./templates
 
 ## Copy static assets
-COPY --from=build /build/$backend_package/resources ./$backend_package
-COPY --from=build /build/$frontend_package/dist ./$frontend_package
+COPY --from=build /build/$backend_package/resources ./$backend_package/resources
+COPY --from=build /build/$frontend_package/dist ./$frontend_package/dist
 
-ENTRYPOINT ["/app/release/backend", "-b", "backend/resources", "-f", "frontend/dist"]
+ENTRYPOINT ["release/backend", "-b", "backend/resources", "-f", "frontend/dist"]
+# 
