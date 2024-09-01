@@ -39,4 +39,4 @@ COPY --from=build /build/template[s] ./templates
 COPY --from=build /build/$backend_package/resources ./$backend_package
 COPY --from=build /build/$frontend_package/dist ./$frontend_package
 
-ENTRYPOINT ["release/$backend_package", "-b", "$backend_package/resources", "-f", "$frontend_package/dist"]
+ENTRYPOINT ["release/backend", "-b", "backend/resources", "-f", "frontend/dist"]
