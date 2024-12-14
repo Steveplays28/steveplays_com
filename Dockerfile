@@ -13,7 +13,7 @@ COPY . .
 
 RUN --mount=type=cache,target=/usr/local/cargo/registry \
     --mount=type=cache,target=/usr/local/cargo/git \
-	trunk --config=$frontend_package/Trunk.toml build $frontend_package/index.html; \
+	trunk --config=$frontend_package/Trunk.toml build index.html; \
     cargo build --release;
 
 ################################################################################
