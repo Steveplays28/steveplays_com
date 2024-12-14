@@ -3,6 +3,7 @@ FROM docker.io/rust:1-slim-bookworm AS build
 ARG backend_package=backend
 ARG frontend_package=frontend
 
+RUN sudo apt -y install pkg-config
 RUN rustup target add wasm32-unknown-unknown
 RUN cargo install --locked trunk
 
