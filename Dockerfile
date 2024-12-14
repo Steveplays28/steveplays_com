@@ -4,7 +4,7 @@ ARG backend_package=backend
 ARG frontend_package=frontend
 
 RUN apt-get update
-RUN apt-get -y install pkg-config
+RUN apt-get -y install pkg-config libssl-dev
 RUN rustup target add wasm32-unknown-unknown
 RUN cargo install --locked trunk
 
