@@ -46,7 +46,7 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry \
 
 RUN  --mount=type=cache,target=/usr/local/cargo/registry \
     --mount=type=cache,target=$SCCACHE_DIR,sharing=locked \
-    trunk --config=$frontend_package/Trunk.toml build index.html
+    trunk --config=$client_package/Trunk.toml build index.html
 
 # Application
 FROM debian:bookworm-slim AS runtime
