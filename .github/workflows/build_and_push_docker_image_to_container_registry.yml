@@ -27,7 +27,15 @@ jobs:
         needs: skip_duplicate_jobs
         if: needs.skip_duplicate_jobs.outputs.should_skip != 'true'
 
+        permissions:
+          contents: read
+          packages: write
+          actions: write
+
         steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v3
 
@@ -58,28 +66,6 @@ jobs:
                       type=sha
                       type=raw,value=latest,enable={{is_default_branch}}
 
-            - name: Checkout
-              uses: actions/checkout@v4
-
-            - name: Cache
-              uses: actions/cache@v3
-              id: cache
-              with:
-                  path: |
-                      usr-local-cargo-registry
-                      usr-local-cargo-git
-                  key: cache-${{ hashFiles('Dockerfile') }}
-
-            - name: Inject cache into Docker
-              uses: reproducible-containers/buildkit-cache-dance@v3.1.0
-              with:
-                  cache-map: |
-                      {
-                      "usr-local-cargo-registry": "/usr/local/cargo/registry",
-                      "usr-local-cargo-git": "/usr/local/cargo/git"
-                      }
-                  skip-extraction: ${{ steps.cache.outputs.cache-hit }}
-
             - name: Build and push Docker image
               uses: docker/build-push-action@v6
               with:
@@ -87,3 +73,5 @@ jobs:
                   push: true
                   tags: ${{ steps.meta.outputs.tags }}
                   labels: ${{ steps.meta.outputs.labels }}
+                  cache-from: type=gha
+                  cache-to: type=gha,mode=max

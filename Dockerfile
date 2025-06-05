@@ -1,40 +1,68 @@
-FROM docker.io/rust:1-slim-bookworm AS build
+# Base
+FROM docker.io/rust:1-slim-bookworm AS base
 
-ARG backend_package=backend
-ARG frontend_package=frontend
-
-RUN apt-get update
-RUN apt-get -y install pkg-config libssl-dev
 RUN rustup target add wasm32-unknown-unknown
-RUN cargo install --locked trunk
 
-WORKDIR /build
-COPY . .
+# Chef
+FROM base AS chef
 
-RUN --mount=type=cache,target=/usr/local/cargo/registry \
-    --mount=type=cache,target=/usr/local/cargo/git \
-	trunk --config=$frontend_package/Trunk.toml build index.html; \
-    cargo build --release;
+RUN cargo install cargo-chef
 
-################################################################################
+RUN cargo install trunk
 
-FROM docker.io/debian:bookworm-slim
-
-ARG backend_package=backend
-ARG frontend_package=frontend
+RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
+    --mount=target=/var/cache/apt,type=cache,sharing=locked \
+    rm -f /etc/apt/apt.conf.d/docker-clean \
+    && apt-get update \
+    && apt-get -y --no-install-recommends install pkg-config libssl-dev
+RUN cargo install sccache
+ENV RUSTC_WRAPPER=sccache SCCACHE_DIR=/sccache
 
 WORKDIR /app
 
-## Copy the main binary
-COPY --from=build /build/target/release/$backend_package ./release/$backend_package
+# Planner
+FROM chef AS planner
 
-## Copy runtime assets which may or may not exist
-COPY --from=build /build/Rocket.tom[l] ./static
-COPY --from=build /build/stati[c] ./static
-COPY --from=build /build/template[s] ./templates
+COPY . .
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=$SCCACHE_DIR,sharing=locked \
+    cargo chef prepare --recipe-path recipe.json
 
-## Copy static assets
-COPY --from=build /build/$backend_package/resources ./$backend_package/resources
-COPY --from=build /build/$frontend_package/dist ./$frontend_package/dist
+# Builder
+FROM chef AS builder
 
-ENTRYPOINT ["release/backend", "-b", "backend/resources", "-f", "frontend/dist"]
+ARG server_package=backend
+ARG client_package=frontend
+
+COPY --from=planner /app/recipe.json recipe.json
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=$SCCACHE_DIR,sharing=locked \
+    cargo chef cook --release --recipe-path recipe.json
+
+COPY . .
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=$SCCACHE_DIR,sharing=locked \
+    cargo build --release
+
+RUN  --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=$SCCACHE_DIR,sharing=locked \
+    trunk --config=$frontend_package/Trunk.toml build index.html
+
+# Application
+FROM debian:bookworm-slim AS runtime
+
+ARG server_package=backend
+ARG client_package=frontend
+
+WORKDIR /app
+
+# Copy the main binary
+COPY --from=builder /app/target/release/$server_package /usr/local/bin
+# Copy static assets
+COPY --from=build /build/$backend_package/Rocket.toml ./static
+COPY --from=build /build/$backend_package/static ./static
+COPY --from=build /build/$backend_package/templates ./templates
+COPY --from=build /build/$server_package/resources ./$server_package/resources
+COPY --from=build /build/$client_package/dist ./$client_package/dist
+
+ENTRYPOINT ["/usr/local/bin/$server_package", "-b", "backend/resources", "-f", "frontend/dist"]
