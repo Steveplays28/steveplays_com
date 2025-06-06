@@ -59,10 +59,10 @@ WORKDIR /app
 # Copy the main binary
 COPY --from=builder /app/target/release/$server_package /usr/local/bin
 # Copy static assets
-COPY --from=builder /build/$server_package/Rocket.tom[l] ./static
-COPY --from=builder /build/$server_package/stati[c] ./static
-COPY --from=builder /build/$server_package/template[s] ./templates
-COPY --from=builder /build/$server_package/resources ./$server_package/resources
-COPY --from=builder /build/$client_package/dist ./$client_package/dist
+COPY --from=builder /app/$server_package/Rocket.tom[l] ./static
+COPY --from=builder /app/$server_package/stati[c] ./static
+COPY --from=builder /app/$server_package/template[s] ./templates
+COPY --from=builder /app/$server_package/resources ./$server_package/resources
+COPY --from=builder /app/$client_package/dist ./$client_package/dist
 
 ENTRYPOINT ["/usr/local/bin/$server_package", "-b", "backend/resources", "-f", "frontend/dist"]
