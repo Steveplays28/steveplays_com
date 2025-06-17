@@ -65,4 +65,4 @@ COPY --from=builder /app/$server_package/template[s] ./templates
 COPY --from=builder /app/$server_package/resources ./$server_package/resources
 COPY --from=builder /app/$client_package/dist ./$client_package/dist
 
-ENTRYPOINT ["/usr/local/bin/$server_package", "-b", "backend/resources", "-f", "frontend/dist"]
+ENTRYPOINT ["/usr/local/bin/backend", "-b", "backend/resources", "-f", "frontend/dist"]
