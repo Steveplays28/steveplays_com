@@ -62,6 +62,7 @@ fn status() -> &'static str {
 
 #[get("/<path..>")]
 async fn render(path: PathBuf) -> RawHtml<String> {
+    assert!(fs::exists(&ARGS.frontend_dist_path).is_ok());
     let index_html = fs::read_to_string(
         ARGS.frontend_dist_path
             .normalize()
