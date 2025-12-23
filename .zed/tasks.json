@@ -1,0 +1,16 @@
+[
+	{
+		"label": "build frontend (watch)",
+		"command": "trunk watch --config frontend/Trunk.toml",
+		"env": {
+			"RUST_BACKTRACE": "1",
+		},
+	},
+	{
+		"label": "run backend (watch)",
+		"command": "bacon run -- -- -b backend/resources -f frontend/dist",
+		"env": {
+			"RUST_BACKTRACE": "1",
+		},
+	},
+]

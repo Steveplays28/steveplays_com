@@ -1,6 +1,7 @@
 [workspace]
-members = ["backend", "common", "frontend"]
 resolver = "2"
+members = ["backend", "common", "frontend"]
+default-members = ["backend"]
 
 [profile.release]
 panic = 'abort'
