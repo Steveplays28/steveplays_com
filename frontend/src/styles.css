@@ -62,8 +62,6 @@ a {
 	align-items: center;
 	justify-content: center;
 	column-gap: 12vw;
-
-	animation: fade-in 0.5s ease-in-out;
 }
 
 .bio-container a {
