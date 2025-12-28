@@ -253,8 +253,7 @@ p {
 	justify-content: center;
 	column-gap: 1vw;
 	margin-left: auto;
-	/* Increase the width to increase the space each social element gets, to avoid them becoming too small */
-	width: 15em;
+	width: auto;
 	height: 100%;
 }
 
