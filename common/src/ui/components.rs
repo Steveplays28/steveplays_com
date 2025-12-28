@@ -54,7 +54,7 @@ pub fn nav_bar() -> Html {
                 </div>
 
                 <div class="nav-bar-element socials">
-                    <a href="https://github.com/Steveplays28/portfolio-website-rs" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/Steveplays28" target="_blank" rel="noopener noreferrer">
                         <img src="/resources/logos/github-mark-white.svg" />
                     </a>
                     <a href="https://discord.gg/KbWxgGg" target="_blank" rel="noopener noreferrer">
