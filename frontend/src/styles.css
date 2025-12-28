@@ -12,7 +12,12 @@ body {
 }
 
 body {
-	background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+	background-position:
+		0 0,
+		0 0,
+		0 0,
+		0 0,
+		0 0;
 	background-size: 100% 100%;
 	background-image: linear-gradient(
 		125deg,
@@ -20,7 +25,7 @@ body {
 		rgba(57, 48, 83, 1) 100%
 	);
 	perspective: 25em;
-	font-family: 'Rubik', sans-serif;
+	font-family: "Rubik", sans-serif;
 
 	animation: background-movement 60s ease infinite;
 }
@@ -69,7 +74,6 @@ a {
 	width: 10vw;
 	height: 10vw;
 	align-self: center;
-	transition: width 0.5s ease-in-out, width 0.5s ease-in-out;
 }
 
 .profile-picture {
@@ -106,13 +110,11 @@ a {
 .bio {
 	color: white;
 	font-size: clamp(2rem, 1.5vw, 5rem);
-	transition: font-size 0.5s ease-in-out;
 }
 
 .no-response {
 	color: lightgray;
 	font-size: larger;
-	transition: font-size 0.5s ease-in-out;
 
 	visibility: hidden;
 	opacity: 0;
@@ -148,15 +150,19 @@ p {
 	align-items: center;
 	align-content: center;
 	column-gap: 1vw;
+	height: 5rem;
 
 	padding-left: 5%;
 	padding-right: 5%;
 	backdrop-filter: grayscale(25%);
-	transition: column-gap 0.5s ease-in-out;
+}
+
+.nav-bar .socials {
+	height: 2.5rem;
 }
 
 .nav-bar-element {
-	font-size: larger;
+	font-size: 2rem;
 }
 
 .nav-bar-element a {
@@ -164,6 +170,11 @@ p {
 	text-decoration: none;
 
 	transition: color 0.15s ease-in-out;
+}
+
+.nav-bar-element a p {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .nav-bar-element a:hover {
@@ -182,24 +193,25 @@ p {
 	margin-bottom: 8vh;
 	background-color: #443c68;
 	color: white;
-	animation: plop-in 0.75s ease-out, fade-in 0.5s ease-in-out;
+	animation:
+		plop-in 0.75s ease-out,
+		fade-in 0.5s ease-in-out;
 	animation-fill-mode: both;
 	border-radius: 5px;
-	background-image: url('https://github.com/Steveplays28/realisticsleep/blob/main/docs/media/realistic_sleep.gif?raw=true');
+	background-image: url("https://github.com/Steveplays28/realisticsleep/blob/main/docs/media/realistic_sleep.gif?raw=true");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
 	text-decoration: none;
 
-	transition: filter 0.15s ease-in-out, transform 0.15s ease-in-out,
-		width 0.5s ease-in-out, width 0.5s ease-in-out;
+	transition: filter 0.15s ease-in-out;
 }
 
 .project:hover {
 	filter: brightness(125%);
 	transform: translateY(-2vh);
 
-	transition: filter 0.15s ease-in-out, transform 0.15s ease-in-out;
+	transition: filter 0.15s ease-in-out;
 }
 
 .project-title {
@@ -211,7 +223,6 @@ p {
 	background-color: rgba(128, 128, 128, 0.5);
 	font-size: 1vw;
 	text-align: center;
-	transition: font-size 0.5s ease-in-out, margin-top 0.5s ease-in-out;
 }
 
 @keyframes plop-in {
@@ -243,28 +254,26 @@ p {
 	column-gap: 1vw;
 	margin-left: auto;
 	/* Increase the width to increase the space each social element gets, to avoid them becoming too small */
-	width: 13vw;
-
-	transition: column-gap 0.5s ease-in-out, width 0.5s ease-in-out;
+	width: 15em;
+	height: 100%;
 }
 
 .socials a {
-	width: 30%;
-	height: auto;
-	transition: transform 0.25s ease-out;
+	width: auto;
+	height: 100%;
+	transition: filter 0.1s ease-in-out;
 }
 
 .socials a:hover {
 	/* Color: #696969 converted to a filter via https://codepen.io/sosuke/pen/Pjoqqp */
 	filter: invert(43%) sepia(0%) saturate(12%) hue-rotate(226deg)
 		brightness(93%) contrast(85%);
-	transform: rotateZ(360deg);
-	transition: transform 0.25s ease-out, filter 0.25s ease-in-out;
+	transition: filter 0.1s ease-in-out;
 }
 
 .socials a img {
-	width: 100%;
-	height: auto;
+	width: auto;
+	height: 100%;
 }
 
 .contact-text {
@@ -274,7 +283,6 @@ p {
 
 .title {
 	font-size: 4vw;
-	transition: font-size 0.5s ease-in-out;
 }
 
 .subtitle {
@@ -284,14 +292,13 @@ p {
 	margin-bottom: 4%;
 	margin-left: 5vw;
 	margin-right: 5vw;
-	transition: font-size 0.5s ease-in-out;
 }
 
 .contact-socials {
 	margin-left: auto;
 	margin-right: auto;
-	width: 45vw;
-	transition: width 0.5s ease-in-out;
+	width: auto;
+	height: 6vh;
 }
 
 .gap {
@@ -302,43 +309,35 @@ p {
 	.nav-bar,
 	.socials {
 		column-gap: 3vw;
-		transition: column-gap 0.5s ease-in-out;
 	}
 
 	.socials {
 		width: 20vw;
-		transition: width 0.5s ease-in-out;
 	}
 
 	.bio {
 		font-size: clamp(2rem, 3vw, 5rem);
-		transition: font-size 0.5s ease-in-out;
 	}
 
 	.profile-picture-container {
 		width: 20vw;
 		height: 20vw;
-		transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
 	}
 
 	.title {
 		font-size: 8vw;
-		transition: font-size 0.5s ease-in-out;
 	}
 
 	.subtitle {
 		font-size: 4vw;
-		transition: font-size 0.5s ease-in-out;
 	}
 
 	.contact-socials {
 		width: 90vw;
-		transition: width 0.5s ease-in-out;
 	}
 
 	.project-title {
 		font-size: 2vw;
-		transition: font-size 0.5s ease-in-out, margin-top 0.5s ease-in-out;
 	}
 }
 
@@ -347,28 +346,23 @@ p {
 	.socials {
 		column-gap: 3vw;
 		font-size: 3vw;
-		transition: column-gap 0.5s ease-in-out;
 	}
 
 	.socials {
 		width: 20vw;
-		transition: width 0.5s ease-in-out;
 	}
 
 	.socials a {
 		width: 50%;
-		transition: width 0.5s ease-in-out;
 	}
 
 	.bio {
 		font-size: 3vw;
-		transition: font-size 0.5s ease-in-out;
 	}
 
 	.profile-picture-container {
 		width: 20vw;
 		height: 20vw;
-		transition: width 0.5s ease-in-out, width 0.5s ease-in-out;
 	}
 
 	.projects {
@@ -379,28 +373,23 @@ p {
 		aspect-ratio: 16/9;
 		width: 80vw;
 		height: 20vh;
-		transition: width 0.5s ease-in-out, width 0.5s ease-in-out,
-			filter 0.15s ease-in-out, transform 0.15s ease-in-out;
+		transition: filter 0.15s ease-in-out;
 	}
 
 	.project-title {
 		font-size: 4vw;
 		margin-top: 21vh;
-		transition: font-size 0.5s ease-in-out, margin-top 0.5s ease-in-out;
 	}
 
 	.title {
 		font-size: 8vw;
-		transition: font-size 0.5s ease-in-out;
 	}
 
 	.subtitle {
 		font-size: 4vw;
-		transition: font-size 0.5s ease-in-out;
 	}
 
 	.contact-socials {
 		width: 90vw;
-		transition: width 0.5s ease-in-out;
 	}
 }
