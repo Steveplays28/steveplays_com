@@ -1,24 +1,16 @@
-# Portfolio Website
+# Steveplays' portfolio
 
-Made with [Yew](https://yew.rs/) in [Rust](https://www.rust-lang.org/), HTML, and CSS.
+Made with [Yew](https://yew.rs) in [Rust](https://www.rust-lang.org), HTML, and CSS.
 
-## Color Palette
+## Development
 
-<https://colorhunt.co/palette/635985443c6839305318122b>
-
-## Contributing
-
-### Development
-
-- Install [cargo watch](https://github.com/watchexec/cargo-watch?tab=readme-ov-file#install)
+- Install [bacon](https://dystroy.org/bacon)
 - Build the frontend
-  - Command line
-    - `cd frontend`
-    - `trunk build`
-  - Visual Studio Code: `Tasks: Run Task`->`build frontend`
+  - `trunk watch --config frontend/Trunk.toml`
 - Start the backend
-  - Command line
-    - `cd ../backend`
-    - `cargo watch -x run`
-  - Visual Studio Code: `Tasks: Run Task`->`start backend`
+  - `bacon run -- -- -b backend/resources -f frontend/dist`
 - View the website at <http://127.0.0.1:8000>
+
+## Attribution
+
+- [Color palette from Color Hunt](https://colorhunt.co/palette/635985443c6839305318122b)
