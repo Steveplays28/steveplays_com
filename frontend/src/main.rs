@@ -1,4 +1,4 @@
-use common::ui::components::{switch, NavBar, Route};
+use common::ui::components::{NavBar, Route, switch};
 use yew::prelude::*;
 use yew_router::prelude::*;
 
