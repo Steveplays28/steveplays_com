@@ -53,9 +53,9 @@ a {
 }
 
 .bio-container {
-	margin-left: 10vw;
-	margin-right: 10vw;
-	margin-top: 10vh;
+	padding-left: 10vw;
+	padding-right: 10vw;
+	padding-top: 10vh;
 
 	display: flex;
 	align-content: center;
@@ -230,9 +230,10 @@ p {
 	flex-flow: row wrap;
 	column-gap: 1vw;
 	row-gap: 1vw;
-	margin-left: 10vw;
-	margin-right: 10vw;
-	margin-top: 10vh;
+	padding-left: 10vw;
+	padding-right: 10vw;
+	padding-top: 10vh;
+	padding-bottom: 10vh;
 	z-index: -1;
 }
 
