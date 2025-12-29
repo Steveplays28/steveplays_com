@@ -28,9 +28,9 @@ static PROJECTS_JSON: String = {
             .expect("serde should be able to parse `project`"),
         );
     }
-
-    return serde_json::to_string::<Vec<Project>>(&projects)
-        .expect("serde should be able to serialize `projects`");
+    projects.sort();
+    serde_json::to_string::<Vec<Project>>(&projects)
+        .expect("serde should be able to serialize `projects`")
 };
 
 #[get("/projects")]
