@@ -1,5 +1,36 @@
 {
-	"name": "Distant Horizons (contributor)",
-	"link": "https://modrinth.com/mod/distanthorizons",
-	"image": "https://wsrv.nl/?url=https%3A%2F%2Fmedia.forgecdn.net%2Fattachments%2F431%2F564%2Fcliff-side-2.png&n=-1"
+	"name": "Distant Horizons",
+	"authors": [
+		{ "name": "James Seibel", "website": "https://gitlab.com/jeseibel" },
+		{ "name": "cola98765", "website": "https://github.com/cola98765" },
+		{ "name": "coolGi", "website": "https://github.com/coolGi69" },
+		{ "name": "Jim C K Flaten", "website": "https://gitlab.com/jckf" },
+		{ "name": "Leonardo Amato", "website": "https://gitlab.com/Morippi" },
+		{ "name": "Ran", "website": "https://gitlab.com/_Ran" },
+		{ "name": "s809", "website": "https://gitlab.com/s809" },
+		{ "name": "TomTheFurry", "website": "https://gitlab.com/TomTheFurry" },
+		{ "name": "Leetom" }
+	],
+	"contributors": [
+		{ "name": "f53" },
+		{ "name": "AquaticLava", "website": "https://gitlab.com/AquaticLava" },
+		{ "name": "Sjmarf" },
+		{ "name": "cortex", "website": "https://github.com/MCRcortex" },
+		{ "name": "stduhpf" },
+		{ "name": "notalpha" },
+		{ "name": "cailin" },
+		{ "name": "Null", "website": "https://github.com/null511" },
+		{ "name": "Steveplays", "website": "https://steveplays.com" },
+		{ "name": "Builderb0y", "website": "https://github.com/Builderb0y" },
+		{ "name": "Pankakes" },
+		{ "name": "ishland", "website": "https://github.com/ishland" },
+		{ "name": "Skillnoob_" },
+		{ "name": "Mr.Counter" }
+	],
+	"images": {
+		"banner": "https://wsrv.nl/?url=https%3A%2F%2Fmedia.forgecdn.net%2Fattachments%2F431%2F564%2Fcliff-side-2.png&n=-1"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/distanthorizons"
+	}
 }

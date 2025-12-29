@@ -1,5 +1,10 @@
 {
 	"name": "Restart Server",
-	"link": "https://modrinth.com/mod/restart-server",
-	"image": "https://github.com/Steveplays28/restart-server/raw/67bc815074a98eef71f3a49ceb8ea29206f095d1/docs/media/command_preview.png"
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"banner": "https://github.com/Steveplays28/restart-server/raw/67bc815074a98eef71f3a49ceb8ea29206f095d1/docs/media/command_preview.png"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/restart-server"
+	}
 }

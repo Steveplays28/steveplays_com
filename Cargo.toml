@@ -3,5 +3,8 @@ resolver = "2"
 members = ["backend", "common", "frontend"]
 default-members = ["backend"]
 
+[workspace.package]
+edition = "2024"
+
 [profile.release]
 panic = 'abort'

@@ -1,5 +1,10 @@
 {
 	"name": "No More Long Handed Inserters",
-	"link": "https://mods.factorio.com/mod/no-more-long-handed-inserters",
-	"image": "https://github.com/Steveplays28/no-more-long-handed-inserters/raw/af336799d8530d6303fcae2ead07975536a4d0f8/thumbnail.png"
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"icon": "https://github.com/Steveplays28/no-more-long-handed-inserters/raw/af336799d8530d6303fcae2ead07975536a4d0f8/thumbnail.png"
+	},
+	"links": {
+		"website": "https://mods.factorio.com/mod/no-more-long-handed-inserters"
+	}
 }

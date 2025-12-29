@@ -1,5 +1,19 @@
 {
-	"name": "Forgero (contributor)",
-	"link": "https://modrinth.com/mod/forgero",
-	"image": "https://github.com/SigmundGranaas/forgero/raw/6cece12e6a9f59109470bc375c136da3e1cc3698/assets/banner.png"
+	"name": "Forgero",
+	"authors": [
+		{
+			"name": "Sigmund Granaas Sandring",
+			"website": "https://github.com/SigmundGranaas"
+		}
+	],
+	"contributors": [
+		{ "name": "Steveplays", "website": "https://steveplays.com" },
+		{ "name": "JorisDeBeer", "website": "https://github.com/JorisDeBeer" }
+	],
+	"images": {
+		"banner": "https://github.com/SigmundGranaas/forgero/raw/6cece12e6a9f59109470bc375c136da3e1cc3698/assets/banner.png"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/forgero"
+	}
 }

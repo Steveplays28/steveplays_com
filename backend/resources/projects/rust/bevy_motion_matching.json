@@ -1,5 +1,19 @@
 {
-	"name": "Bevy Motion Matching (maintainer)",
-	"link": "https://github.com/voxell-tech/bevy_motion_matching",
-	"image": "https://github.com/voxell-tech/bevy_motion_matching/raw/dab0065bcf267de4af3c5a1715a82fd304fe30d3/.github/assets/play-mode.png"
+	"name": "Bevy Motion Matching",
+	"authors": [
+		{ "name": "Nixon", "website": "https://linktr.ee/voxell" },
+		{ "name": "Kah Boon", "website": "https://github.com/kahboon0425" }
+	],
+	"contributors": [
+		{ "name": "FY123", "website": "https://github.com/ConquerorFY" },
+		{ "name": "Steveplays", "website": "https://steveplays.com" },
+		{ "name": "Sheng Hong Wong", "website": "https://wsh.framer.website/" }
+	],
+	"images": {
+		"banner": "https://github.com/voxell-tech/bevy_motion_matching/raw/dab0065bcf267de4af3c5a1715a82fd304fe30d3/.github/assets/play-mode.png"
+	},
+	"links": {
+		"website": "https://github.com/voxell-tech/bevy_motion_matching"
+	},
+	"tags": ["library"]
 }

@@ -1,5 +1,10 @@
 {
-	"name": "Noisium (archived)",
-	"link": "https://modrinth.com/mod/noisium",
-	"image": "https://github.com/Steveplays28/noisium/raw/516028d5a32874054859792473602ae8b189edeb/assets/banner/banner_without_author_text_1920x1080.png"
+	"name": "Noisium",
+	"images": {
+		"banner": "https://github.com/Steveplays28/noisium/raw/516028d5a32874054859792473602ae8b189edeb/assets/banner/banner_without_author_text_1920x1080.png"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/noisium"
+	},
+	"tags": ["archived"]
 }

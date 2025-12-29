@@ -1,5 +1,10 @@
 {
-	"name":"Simple Seasons",
-	"link": "https://github.com/steves-underwater-paradise/simple-seasons",
-	"image": "https://github.com/steves-underwater-paradise/simple-seasons/raw/d2831d1d60f608ace0f41894cedab5887b21717b/docs/assets/banners/oak_and_spruce_taiga_forest_summer_bliss_shaders_banner.png"
+	"name": "Simple Seasons",
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"banner": "https://github.com/steves-underwater-paradise/simple-seasons/raw/d2831d1d60f608ace0f41894cedab5887b21717b/docs/assets/banners/oak_and_spruce_taiga_forest_summer_bliss_shaders_banner.png"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/simple-seasons"
+	}
 }

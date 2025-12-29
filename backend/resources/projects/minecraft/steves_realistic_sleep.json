@@ -1,5 +1,10 @@
 {
 	"name": "Steve's Realistic Sleep",
-	"link": "https://modrinth.com/mod/stevesrealisticsleep",
-	"image": "https://github.com/Steveplays28/stevesrealisticsleep/raw/b8ee9e6f00b22a2da50fb73342f7844f94f896e5/docs/media/realistic_sleep.gif"
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"banner": "https://github.com/Steveplays28/stevesrealisticsleep/raw/b8ee9e6f00b22a2da50fb73342f7844f94f896e5/docs/media/realistic_sleep.gif"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/stevesrealisticsleep"
+	}
 }
