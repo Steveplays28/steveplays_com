@@ -211,14 +211,27 @@ p {
 }
 
 .project-title {
+	display: flex;
+	column-gap: 0.5rem;
 	position: relative;
 	margin-top: auto;
 	margin-right: auto;
 	margin-left: auto;
 	border-radius: 5px;
 	background-color: rgba(128, 128, 128, 0.5);
+	height: 1.5em;
 	font-size: 1.5em;
 	text-align: center;
+}
+
+.project-title p {
+	margin: auto;
+}
+
+.project-icon {
+	width: auto;
+	height: 100%;
+	margin: auto;
 }
 
 .projects {
