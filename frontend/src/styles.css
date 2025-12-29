@@ -219,7 +219,7 @@ p {
 	margin-left: auto;
 	border-radius: 5px;
 	background-color: rgba(128, 128, 128, 0.5);
-	font-size: 1vw;
+	font-size: 1.5em;
 	text-align: center;
 }
 
@@ -268,118 +268,54 @@ p {
 
 .contact-text {
 	text-align: center;
-	margin-top: 12vh;
+	margin-top: 10vh;
+	margin-left: 10vw;
+	margin-right: 10vw;
 }
 
 .title {
-	font-size: 4vw;
+	font-size: 7.5em;
+	margin-bottom: 2.5vh;
 }
 
 .subtitle {
-	font-size: 1vw;
+	font-size: 2.5em;
 	font-weight: lighter;
-	margin-top: -4%;
-	margin-bottom: 4%;
-	margin-left: 5vw;
-	margin-right: 5vw;
+	margin-bottom: 10vh;
 }
 
 .contact-socials {
-	margin-left: auto;
-	margin-right: auto;
 	width: auto;
-	height: 6vh;
+	height: 5vh;
+	padding-left: 10vw;
+	padding-right: 10vw;
+	padding-bottom: 10vh;
+	flex-flow: row wrap;
+	row-gap: 3vw;
 }
 
 .gap {
 	width: 3vw;
 }
 
-@media only screen and (max-width: 800px) {
-	.nav-bar,
-	.socials {
-		column-gap: 3vw;
-	}
-
-	.socials {
-		width: 20vw;
-	}
-
+@media only screen and (max-width: 1200px) {
 	.bio {
-		font-size: clamp(2rem, 3vw, 5rem);
+		font-size: clamp(0.5rem, 2.75vw, 1.6rem);
 	}
 
 	.profile-picture-container {
 		width: 20vw;
 		height: 20vw;
-	}
-
-	.title {
-		font-size: 8vw;
-	}
-
-	.subtitle {
-		font-size: 4vw;
-	}
-
-	.contact-socials {
-		width: 90vw;
-	}
-
-	.project-title {
-		font-size: 2vw;
-	}
-}
-
-@media only screen and (max-width: 1200px) and (min-height: 1600px) {
-	.nav-bar,
-	.socials {
-		column-gap: 3vw;
-		font-size: 3vw;
-	}
-
-	.socials {
-		width: 20vw;
-	}
-
-	.socials a {
-		width: 50%;
-	}
-
-	.bio {
-		font-size: 3vw;
-	}
-
-	.profile-picture-container {
-		width: 20vw;
-		height: 20vw;
-	}
-
-	.projects {
-		row-gap: 10vw;
 	}
 
 	.project {
-		aspect-ratio: 16/9;
-		width: 80vw;
-		height: 20vh;
-		transition: filter 0.1s ease-in-out;
+		width: 39.5vw;
 	}
+}
 
-	.project-title {
-		font-size: 4vw;
-		margin-top: 21vh;
-	}
-
-	.title {
-		font-size: 8vw;
-	}
-
-	.subtitle {
-		font-size: 4vw;
-	}
-
+@media (orientation: portrait) {
 	.contact-socials {
-		width: 90vw;
+		height: 4vh;
+		padding-top: 2.5vh;
 	}
 }
