@@ -11,6 +11,7 @@
 		{ "name": "JorisDeBeer", "website": "https://github.com/JorisDeBeer" }
 	],
 	"images": {
+		"icon": "https://github.com/SigmundGranaas/forgero/raw/1162c74cbc2f9c2a84a4605219b07da71b6d5f1c/assets/logo/logo.png",
 		"banner": "https://github.com/SigmundGranaas/forgero/raw/6cece12e6a9f59109470bc375c136da3e1cc3698/assets/banner.png"
 	},
 	"links": {

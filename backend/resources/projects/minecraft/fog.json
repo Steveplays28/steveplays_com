@@ -5,6 +5,7 @@
 		{ "name": "Steveplays", "website": "https://steveplays.com" }
 	],
 	"images": {
+		"icon": "https://github.com/IMB11/Fog/raw/ddaf7c5c7356aab2750a046635fa7132de339d9d/src/main/resources/assets/fog/icon.png",
 		"banner": "https://camo.githubusercontent.com/81da6bfabb46a2297541210f32e3892a2634d23d785cac870bed26faebf85b51/68747470733a2f2f63646e2e6d6f6472696e74682e636f6d2f646174612f57754756575546322f696d616765732f386364303033393933373461393439356638663765653331383863633736373637646236316130622e706e67"
 	},
 	"links": {

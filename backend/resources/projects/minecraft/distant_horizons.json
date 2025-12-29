@@ -28,6 +28,7 @@
 		{ "name": "Mr.Counter" }
 	],
 	"images": {
+		"icon": "https://gitlab.com/distant-horizons-team/distant-horizons-core/-/raw/ba923fa829662150d44014a11e212d650d4c1d2f/_Misc%20Files/logo%20files/new/SVG/Distant-Horizons-M.svg",
 		"banner": "https://wsrv.nl/?url=https%3A%2F%2Fmedia.forgecdn.net%2Fattachments%2F431%2F564%2Fcliff-side-2.png&n=-1"
 	},
 	"links": {

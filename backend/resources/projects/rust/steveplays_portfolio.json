@@ -2,10 +2,12 @@
 	"name": "Steveplays' portfolio (you are here)",
 	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
 	"images": {
+		"icon": "https://github.com/Steveplays28/steveplays_com/raw/63552d2892811aec1a98ff8198fb179a378d98c6/frontend/resources/logos/steve_profile_picture.png",
 		"banner": "https://github.com/Steveplays28/steveplays_com/raw/c93a06f57b9f7b2aa0cc4d22f638aef8fe535bf8/docs/assets/steve_banner.png"
 	},
 	"links": {
-		"website": "https://github.com/Steveplays28/steveplays_com"
+		"website": "https://steveplays.com",
+		"repository": "https://github.com/Steveplays28/steveplays_com"
 	},
 	"tags": ["website"]
 }

@@ -2,6 +2,7 @@
 	"name": "Biome Fog",
 	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
 	"images": {
+		"icon": "https://github.com/Steveplays28/biomefog/raw/4e64e399cb9d745bcfde4f02493be7c51377cf18/docs/media/icon_512x512.png",
 		"banner": "https://github.com/Steveplays28/biomefog/raw/4e64e399cb9d745bcfde4f02493be7c51377cf18/docs/media/desert.png"
 	},
 	"links": {
