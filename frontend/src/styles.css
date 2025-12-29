@@ -53,15 +53,15 @@ a {
 }
 
 .bio-container {
-	margin-left: 13.5vw;
-	margin-right: 13.5vw;
-	margin-top: 12vh;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	margin-top: 10vh;
 
 	display: flex;
 	align-content: center;
 	align-items: center;
 	justify-content: center;
-	column-gap: 12vw;
+	column-gap: 10vw;
 }
 
 .bio-container a {
@@ -149,9 +149,9 @@ p {
 	align-content: center;
 	column-gap: 1vw;
 	height: 5rem;
+	margin-left: 10vw;
+	margin-right: 10vw;
 
-	padding-left: 5%;
-	padding-right: 5%;
 	backdrop-filter: grayscale(25%);
 }
 
@@ -186,9 +186,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	aspect-ratio: 16/9;
-	width: 20vw;
-	margin-top: 1vh;
-	margin-bottom: 8vh;
+	width: 19.25vw;
 	background-color: #443c68;
 	color: white;
 	animation: fade-in 0.5s ease-in-out;
@@ -231,9 +229,10 @@ p {
 	justify-content: center;
 	flex-flow: row wrap;
 	column-gap: 1vw;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-top: 12vh;
+	row-gap: 1vw;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	margin-top: 10vh;
 	z-index: -1;
 }
 
