@@ -189,8 +189,6 @@ p {
 	width: 19.25vw;
 	background-color: #443c68;
 	color: white;
-	animation: fade-in 0.5s ease-in-out;
-	animation-fill-mode: both;
 	border-radius: 5px;
 	background-image: url("https://github.com/Steveplays28/realisticsleep/blob/main/docs/media/realistic_sleep.gif?raw=true");
 	background-repeat: no-repeat;
