@@ -48,6 +48,11 @@ pub fn nav_bar() -> Html {
                     </Link<Route>>
                 </div>
                 <div class="nav-bar-element">
+                    <Link<Route> to={Route::Projects}>
+                        <p>{ "Projects" }</p>
+                    </Link<Route>>
+                </div>
+                <div class="nav-bar-element">
                     <Link<Route> to={Route::Contact}>
                         <p>{ "Contact" }</p>
                     </Link<Route>>
@@ -138,9 +143,50 @@ fn home() -> Html {
 
 #[function_component(Projects)]
 pub fn projects() -> Html {
+    let projects_option = use_state(|| None);
+    {
+        let projects = projects_option.clone();
+        use_effect(move || {
+            if projects.is_none() {
+                spawn_local(async move {
+                    let response = Request::get("/index/projects").send().await.unwrap();
+                    if response.ok() {
+                        projects.set(Some(Ok(response.json::<Vec<Project>>().await.unwrap())));
+                    } else {
+                        projects.set(Some(Err(format!(
+                            "Error fetching data {} ({})",
+                            response.status(),
+                            response.status_text()
+                        ))));
+                    }
+                });
+            }
+
+            || {}
+        });
+    }
     html! {
         <>
-            <h1 class="title">{"Projects"}</h1>
+            <h1 class="header-text">{"Projects"}</h1>
+
+            <div class="projects">
+            {
+                if let Some(Ok(projects)) = projects_option.as_ref() {
+                    projects.iter().map(|project| {
+                        let style = if let Some(project_images) = &project.images && let Some(project_banner_image) = &project_images.banner { format!("background-image: url({image});", image = project_banner_image.clone()) } else { String::from("") };
+                        html! {
+                            <a href={project.links.as_ref().expect("project should have links").website.as_ref().expect("project should have website link").clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project" style={style}>
+                                <p class="project-title">{ project.name.clone() }</p>
+                            </a>
+                        }
+                    }).collect::<Html>()
+                } else {
+                    html ! {
+                        <p class="no-response">{ "No response from the server, you may be offline." }</p>
+                    }
+                }
+            }
+            </div>
         </>
     }
 }
@@ -149,8 +195,8 @@ pub fn projects() -> Html {
 pub fn contact() -> Html {
     html! {
         <>
-            <div class="contact-text">
-                <p class="title">{ "Reach out to me" }</p> <br/>
+            <div class="header-text">
+                <h1>{ "Reach out to me" }</h1> <br/>
                 <p class="subtitle">{ "I respond most quickly on Discord, GitHub and Patreon, but I try my best to respond on all platforms." }</p>
             </div>
 

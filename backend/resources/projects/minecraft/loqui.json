@@ -10,5 +10,6 @@
 	},
 	"links": {
 		"website": "https://staging-loqui.imb11.dev"
-	}
+	},
+	"tags": ["in_development"]
 }

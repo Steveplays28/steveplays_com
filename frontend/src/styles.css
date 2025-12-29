@@ -266,14 +266,15 @@ p {
 	height: 100%;
 }
 
-.contact-text {
+.header-text {
 	text-align: center;
 	margin-top: 10vh;
 	margin-left: 10vw;
 	margin-right: 10vw;
 }
 
-.title {
+h1 {
+	font-weight: normal;
 	font-size: 7.5em;
 	margin-bottom: 2.5vh;
 }
