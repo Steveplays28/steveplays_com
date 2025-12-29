@@ -1,0 +1,25 @@
+{
+	"name": "Cloche",
+	"authors": [
+		{
+			"name": "Ashley Wright",
+			"website": "https://msrandom.net"
+		},
+		{
+			"name": "Adrian O.V",
+			"website": "https://github.com/CodexAdrian"
+		}
+	],
+	"contributors": [
+		{ "name": "SettingDust", "website": "https://github.com/SettingDust" },
+		{ "name": "Steveplays", "website": "https://steveplays.com" },
+		{ "name": "meowora", "website": "https://github.com/meowora" },
+		{ "name": "Serenity", "website": "https://github.com/invokekitty" }
+	],
+	"images": {
+		"icon": "https://avatars.githubusercontent.com/u/89703835"
+	},
+	"links": {
+		"website": "https://github.com/terrarium-earth/cloche"
+	}
+}

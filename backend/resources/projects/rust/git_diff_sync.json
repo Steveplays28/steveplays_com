@@ -1,0 +1,8 @@
+{
+	"name": "Git Diff Sync",
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"links": {
+		"website": "https://github.com/Steveplays28/git_diff_sync"
+	},
+	"tags": ["cli"]
+}

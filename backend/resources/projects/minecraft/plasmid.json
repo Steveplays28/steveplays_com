@@ -1,0 +1,22 @@
+{
+	"name": "Plasmid",
+	"authors": [
+		{
+			"name": "NucleoidMC",
+			"website": "https://github.com/orgs/NucleoidMC/people"
+		}
+	],
+	"contributors": [
+		{
+			"name": "GitHub contributors",
+			"website": "https://github.com/NucleoidMC/plasmid/graphs/contributors"
+		},
+		{ "name": "Steveplays", "website": "https://steveplays.com" }
+	],
+	"images": {
+		"icon": "https://avatars.githubusercontent.com/u/69248090"
+	},
+	"links": {
+		"website": "https://github.com/NucleoidMC/plasmid"
+	}
+}

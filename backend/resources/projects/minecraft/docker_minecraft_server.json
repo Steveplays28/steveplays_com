@@ -1,0 +1,22 @@
+{
+	"name": "Minecraft Server on Docker (Java Edition)",
+	"authors": [
+		{
+			"name": "Geoff Bourne",
+			"website": "https://itzg.github.io"
+		}
+	],
+	"contributors": [
+		{
+			"name": "GitHub contributors (>290 people)",
+			"website": "https://github.com/NucleoidMC/plasmid/graphs/contributors"
+		},
+		{ "name": "Steveplays", "website": "https://steveplays.com" }
+	],
+	"images": {
+		"icon": "https://avatars.githubusercontent.com/u/988985"
+	},
+	"links": {
+		"website": "https://docker-minecraft-server.readthedocs.io"
+	}
+}
