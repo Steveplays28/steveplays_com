@@ -79,13 +79,13 @@ a {
 	height: auto;
 	border-radius: 50%;
 	border: 5px solid transparent;
-	transition: border 0.15s ease-in-out;
+	transition: border 0.1s ease-in-out;
 }
 
 .profile-picture:hover,
 .profile-picture-container:hover .profile-picture:not(:hover) {
 	border: 5px solid white;
-	transition: border 0.15s ease-in-out;
+	transition: border 0.1s ease-in-out;
 }
 
 .github {
@@ -96,13 +96,13 @@ a {
 	height: auto;
 
 	opacity: 0;
-	transition: opacity 0.15s ease-in-out;
+	transition: opacity 0.1s ease-in-out;
 }
 
 .github:hover,
 .profile-picture:hover + .github {
 	opacity: 1;
-	transition: opacity 0.15s ease-in-out;
+	transition: opacity 0.1s ease-in-out;
 }
 
 .bio {
@@ -167,7 +167,7 @@ p {
 	color: white;
 	text-decoration: none;
 
-	transition: color 0.15s ease-in-out;
+	transition: color 0.1s ease-in-out;
 }
 
 .nav-bar-element a p {
@@ -178,7 +178,7 @@ p {
 .nav-bar-element a:hover {
 	color: lightgray;
 
-	transition: color 0.15s ease-in-out;
+	transition: color 0.1s ease-in-out;
 }
 
 .project {
@@ -191,9 +191,7 @@ p {
 	margin-bottom: 8vh;
 	background-color: #443c68;
 	color: white;
-	animation:
-		plop-in 0.75s ease-out,
-		fade-in 0.5s ease-in-out;
+	animation: fade-in 0.5s ease-in-out;
 	animation-fill-mode: both;
 	border-radius: 5px;
 	background-image: url("https://github.com/Steveplays28/realisticsleep/blob/main/docs/media/realistic_sleep.gif?raw=true");
@@ -202,14 +200,18 @@ p {
 	background-size: contain;
 	text-decoration: none;
 
-	transition: filter 0.15s ease-in-out;
+	transition:
+		filter 0.1s ease-in-out,
+		transform 0.1s ease-in-out;
 }
 
 .project:hover {
 	filter: brightness(125%);
 	transform: translateY(-2vh);
 
-	transition: filter 0.15s ease-in-out;
+	transition:
+		filter 0.1s ease-in-out,
+		transform 0.1s ease-in-out;
 }
 
 .project-title {
@@ -221,15 +223,6 @@ p {
 	background-color: rgba(128, 128, 128, 0.5);
 	font-size: 1vw;
 	text-align: center;
-}
-
-@keyframes plop-in {
-	0% {
-		top: -20vh;
-	}
-	100% {
-		top: 0;
-	}
 }
 
 .projects {
@@ -370,7 +363,7 @@ p {
 		aspect-ratio: 16/9;
 		width: 80vw;
 		height: 20vh;
-		transition: filter 0.15s ease-in-out;
+		transition: filter 0.1s ease-in-out;
 	}
 
 	.project-title {

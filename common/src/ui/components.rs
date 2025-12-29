@@ -99,8 +99,6 @@ fn home() -> Html {
             || {}
         });
     }
-    let initial_project_animation_delay_seconds: f32 = 0.25;
-    let mut index: i32 = 0;
     html! {
         <>
             <div class="bio-container">
@@ -111,8 +109,8 @@ fn home() -> Html {
 
                 <p class="bio">
                     { "Hi, I'm Steve!" } <br/>
-                    { "I like making games in Godot, as well as making Minecraft mods." } <br/><br/>
-                    { "I'm currently maintaining Minecraft mods, a Factorio mod, and a Satisfactory mod. I'm also contributing to other Minecraft projects, such as " } <a href="https://modrinth.com/mod/forgero" target="_blank" rel="noopener noreferrer"> { "Forgero" } </a> { " and "} <a href="https://modrinth.com/mod/distanthorizons" target="_blank" rel="noopener noreferrer"> { "Distant Horizons" } </a> { "." }
+                    { "I like making games!" } <br/><br/>
+                    { "I'm currently maintaining libraries, Minecraft mods, a Factorio mod, and a Satisfactory mod. I've also contributed to other Minecraft mods, such as " } <a href="https://modrinth.com/mod/forgero" target="_blank" rel="noopener noreferrer"> { "Forgero" } </a> { " and "} <a href="https://modrinth.com/mod/distanthorizons" target="_blank" rel="noopener noreferrer"> { "Distant Horizons" } </a> { "." }
                 </p>
             </div>
 
@@ -120,9 +118,7 @@ fn home() -> Html {
             {
                 if let Some(Ok(projects)) = projects_option.as_ref() {
                     projects.iter().map(|project| {
-                        let style = format!("animation-delay: {seconds}s; background-image: url({image});", seconds = (index as f32) / 4.0 + initial_project_animation_delay_seconds, image = project.image.clone());
-                        index += 1;
-
+                        let style = format!("background-image: url({image});", image = project.image.clone());
                         html! {
                             <a href={project.link.clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project" style={style}>
                                 <p class="project-title">{ project.name.clone() }</p>
