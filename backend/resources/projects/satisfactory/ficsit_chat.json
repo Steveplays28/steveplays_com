@@ -2,7 +2,8 @@
 	"name": "FICSIT.chat",
 	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
 	"images": {
-		"icon": "https://github.com/Steveplays28/FicsitChat/raw/bc7439443f313c6cc5fbc5c74706bbe79c5a6957/assets/ficsit_chat_icon_512x512.png"
+		"icon": "https://github.com/Steveplays28/FicsitChat/raw/bc7439443f313c6cc5fbc5c74706bbe79c5a6957/assets/ficsit_chat_icon_128x128.png",
+		"banner": "https://github.com/Steveplays28/steveplays_com/raw/c93a06f57b9f7b2aa0cc4d22f638aef8fe535bf8/docs/assets/steve_banner.png"
 	},
 	"links": {
 		"website": "https://ficsit.app/mod/FicsitChat"
