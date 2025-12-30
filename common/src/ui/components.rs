@@ -121,10 +121,10 @@ fn home() -> Html {
 
             <div class="button-grid">
                 <a href="/projects" rel="noopener noreferrer" class="button">
-                    <h2>{ "View projects" }</h2>
+                    <p>{ "View projects" }</p>
                 </a>
                 <a href="/contact" rel="noopener noreferrer" class="button">
-                    <h2>{ "Contact" }</h2>
+                    <p>{ "Contact" }</p>
                 </a>
             </div>
         </>

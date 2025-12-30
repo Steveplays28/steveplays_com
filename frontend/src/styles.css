@@ -113,7 +113,7 @@ a {
 .button-grid {
 	display: flex;
 	flex-flow: row wrap;
-	gap: 5vw;
+	gap: 2vw;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
@@ -139,6 +139,7 @@ a {
 .button * {
 	margin-top: 0;
 	margin-bottom: 0;
+	font-size: clamp(2rem, 1.5vw, 5rem);
 
 	transition: color 0.05s ease-in-out;
 }
@@ -357,6 +358,10 @@ h2 {
 	.profile-picture-container {
 		width: 20vw;
 		height: 20vw;
+	}
+
+	.button * {
+		font-size: clamp(0.5rem, 2.75vw, 1.6rem);
 	}
 
 	.project {
