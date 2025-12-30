@@ -119,23 +119,13 @@ fn home() -> Html {
                 </p>
             </div>
 
-            <div class="projects">
-            {
-                if let Some(Ok(projects)) = projects_option.as_ref() {
-                    projects.iter().map(|project| {
-                        let style = if let Some(project_images) = &project.images && let Some(project_banner_image) = &project_images.banner { format!("background-image: url({image});", image = project_banner_image.clone()) } else { String::from("") };
-                        html! {
-                            <a href={project.links.as_ref().expect("project should have links").website.as_ref().expect("project should have website link").clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project" style={style}>
-                                <p class="project-title">{ project.name.clone() }</p>
-                            </a>
-                        }
-                    }).collect::<Html>()
-                } else {
-                    html ! {
-                        <p class="no-response">{ "No response from the server, you may be offline." }</p>
-                    }
-                }
-            }
+            <div class="button-grid">
+                <a href="/projects" rel="noopener noreferrer" class="button">
+                    <h2>{ "View projects" }</h2>
+                </a>
+                <a href="/contact" rel="noopener noreferrer" class="button">
+                    <h2>{ "Contact" }</h2>
+                </a>
             </div>
         </>
     }

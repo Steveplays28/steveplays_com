@@ -2,7 +2,7 @@
 	"name": "Git Diff Sync",
 	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
 	"images": {
-		"banner": "https://github.com/Steveplays28/steveplays_com/raw/c93a06f57b9f7b2aa0cc4d22f638aef8fe535bf8/docs/assets/steve_banner.png"
+		"banner": "https://github.com/Steveplays28/steveplays_com/raw/63552d2892811aec1a98ff8198fb179a378d98c6/frontend/resources/banners/steve_banner.png"
 	},
 	"links": {
 		"website": "https://github.com/Steveplays28/git_diff_sync"
