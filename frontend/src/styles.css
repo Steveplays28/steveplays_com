@@ -204,16 +204,19 @@ p {
 }
 
 .nav-bar-element a {
-	color: white;
 	text-decoration: none;
+}
 
-	transition: color 0.1s ease-in-out;
+.nav-bar-element a p {
+	color: white;
+
+	transition: color 0.05s ease-in-out;
 }
 
 .nav-bar-element:hover a p {
 	color: lightgray;
 
-	transition: color 0.1s ease-in-out;
+	transition: color 0.05s ease-in-out;
 }
 
 .nav-bar-element a p {
