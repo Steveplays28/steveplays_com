@@ -189,8 +189,8 @@ p {
 	align-content: center;
 	column-gap: 1vw;
 	height: 5rem;
-	margin-left: 10vw;
-	margin-right: 10vw;
+	padding-left: 10vw;
+	padding-right: 10vw;
 
 	backdrop-filter: grayscale(25%);
 }
@@ -210,15 +210,15 @@ p {
 	transition: color 0.1s ease-in-out;
 }
 
-.nav-bar-element a p {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-.nav-bar-element a:hover {
+.nav-bar-element:hover a p {
 	color: lightgray;
 
 	transition: color 0.1s ease-in-out;
+}
+
+.nav-bar-element a p {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .project {
