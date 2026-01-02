@@ -233,7 +233,8 @@ p {
 	flex-direction: column;
 	aspect-ratio: 16/9;
 	width: 19.25vw;
-	background-color: #443c68;
+	background-color: transparent;
+	backdrop-filter: grayscale(25%);
 	color: white;
 	border-radius: 5px;
 	background-repeat: no-repeat;
