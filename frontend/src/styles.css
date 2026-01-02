@@ -12,18 +12,14 @@ body {
 }
 
 body {
+	background: linear-gradient(105deg, #1c418d 0%, #7b95c7 100%);
+	background-size: 100% 100%;
 	background-position:
 		0 0,
 		0 0,
 		0 0,
 		0 0,
 		0 0;
-	background-size: 100% 100%;
-	background-image: linear-gradient(
-		125deg,
-		rgba(24, 18, 43, 1) 0%,
-		rgba(57, 48, 83, 1) 100%
-	);
 	perspective: 25em;
 	font-family: "Rubik", sans-serif;
 
@@ -123,6 +119,8 @@ a {
 }
 
 .button {
+	background-color: transparent;
+	backdrop-filter: grayscale(12.5%);
 	border: solid #afd3fd 5px;
 	border-radius: 1em;
 	padding: 1em;
@@ -181,8 +179,15 @@ p {
 }
 
 .nav-bar {
+	background: linear-gradient(
+		105deg,
+		#8f079c 0%,
+		#9c076c 33.33%,
+		#c00a86 66.67%,
+		#e60ba1 100%
+	);
+	border-bottom: solid #e5e7ec 1px;
 	color: white;
-	background-color: transparent;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -191,8 +196,6 @@ p {
 	height: 5rem;
 	padding-left: 10vw;
 	padding-right: 10vw;
-
-	backdrop-filter: grayscale(25%);
 }
 
 .nav-bar .socials {
@@ -233,7 +236,6 @@ p {
 	background-color: #443c68;
 	color: white;
 	border-radius: 5px;
-	background-image: url("https://github.com/Steveplays28/realisticsleep/blob/main/docs/media/realistic_sleep.gif?raw=true");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
@@ -243,7 +245,7 @@ p {
 }
 
 .project:hover {
-	filter: brightness(125%) blur(8px);
+	filter: brightness(125%);
 
 	transition: filter 0.1s ease-in-out;
 }
