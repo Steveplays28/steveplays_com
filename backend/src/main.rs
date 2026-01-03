@@ -81,7 +81,7 @@ async fn render(path: PathBuf) -> RawHtml<String> {
 fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![status])
-        .mount("/index", routes![index::projects])
+        .mount("/index", routes![index::art, index::projects])
         .mount(
             "/projects",
             FileServer::from(

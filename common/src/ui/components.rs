@@ -15,6 +15,9 @@ pub enum Route {
     #[at("/404")]
     NotFound,
     #[strum(ascii_case_insensitive)]
+    #[at("/art")]
+    Art,
+    #[strum(ascii_case_insensitive)]
     #[at("/projects")]
     Projects,
     #[strum(ascii_case_insensitive)]
@@ -28,6 +31,9 @@ pub fn switch(routes: Route) -> Html {
             <Home />
         },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
+        Route::Art => html! {
+            <Art />
+        },
         Route::Projects => html! {
             <Projects />
         },
@@ -45,6 +51,11 @@ pub fn nav_bar() -> Html {
                 <div class="nav-bar-element">
                     <Link<Route> to={Route::Home}>
                         <p>{ "Home" }</p>
+                    </Link<Route>>
+                </div>
+                <div class="nav-bar-element">
+                    <Link<Route> to={Route::Art}>
+                        <p>{ "Art" }</p>
                     </Link<Route>>
                 </div>
                 <div class="nav-bar-element">
@@ -120,12 +131,70 @@ fn home() -> Html {
             </div>
 
             <div class="button-grid">
+                <a href="/art" rel="noopener noreferrer" class="button">
+                    <p>{ "View art" }</p>
+                </a>
                 <a href="/projects" rel="noopener noreferrer" class="button">
                     <p>{ "View projects" }</p>
                 </a>
                 <a href="/contact" rel="noopener noreferrer" class="button">
                     <p>{ "Contact" }</p>
                 </a>
+            </div>
+        </>
+    }
+}
+
+#[function_component(Art)]
+pub fn art() -> Html {
+    let art_option = use_state(|| None);
+    {
+        let art = art_option.clone();
+        use_effect(move || {
+            if art.is_none() {
+                spawn_local(async move {
+                    let response = Request::get("/index/art").send().await.unwrap();
+                    if response.ok() {
+                        art.set(Some(Ok(response
+                            .json::<Vec<crate::data::art::Art>>()
+                            .await
+                            .unwrap())));
+                    } else {
+                        art.set(Some(Err(format!(
+                            "Error fetching data {} ({})",
+                            response.status(),
+                            response.status_text()
+                        ))));
+                    }
+                });
+            }
+
+            || {}
+        });
+    }
+    html! {
+        <>
+            <h1 class="header-text">{"Art"}</h1>
+
+            <div class="projects">
+            {
+                if let Some(Ok(art)) = art_option.as_ref() {
+                    art.iter().map(|art| {
+                        let style = format!("background-image: url({image});", image = art.image.clone());
+                        html! {
+                            <a href="TODO" target="_blank" rel="noopener noreferrer" key={art.name.clone()} class="project" style={style}>
+                                <div class="project-title">
+                                    <p>{ format!("{name} ({date})", name = art.name.clone(), date = art.date.clone()) }</p>
+                                </div>
+                            </a>
+                        }
+                    }).collect::<Html>()
+                } else {
+                    html! {
+                        <p class="no-response">{ "No response from the server, you may be offline." }</p>
+                    }
+                }
+            }
             </div>
         </>
     }
