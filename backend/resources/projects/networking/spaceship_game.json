@@ -1,0 +1,14 @@
+{
+	"name": "Spaceship game",
+	"authors": [
+		{ "name": "Mikalan" },
+		{ "name": "Steveplays", "website": "https://steveplays.com" }
+	],
+	"images": {
+		"banner": "resources/projects/spaceship_game.png"
+	},
+	"links": {
+		"website": "https://x.com/Steveplays28/status/1488660700948017154"
+	},
+	"tags": ["unreleased"]
+}
