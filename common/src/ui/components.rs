@@ -191,7 +191,7 @@ pub fn art() -> Html {
                     }).collect::<Html>()
                 } else {
                     html! {
-                        <p class="no-response">{ "No response from the server, you may be offline." }</p>
+                        <NoResponseText></NoResponseText>
                     }
                 }
             }
@@ -247,7 +247,7 @@ pub fn projects() -> Html {
                     }).collect::<Html>()
                 } else {
                     html! {
-                        <p class="no-response">{ "No response from the server, you may be offline." }</p>
+                        <NoResponseText></NoResponseText>
                     }
                 }
             }
@@ -315,5 +315,12 @@ pub fn contact() -> Html {
                 </a>
             </div>
         </>
+    }
+}
+
+#[function_component(NoResponseText)]
+fn no_response_text() -> Html {
+    html! {
+        <p class="no-response">{ "No response from the server, you may be offline." }</p>
     }
 }
