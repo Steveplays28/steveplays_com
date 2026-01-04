@@ -182,11 +182,11 @@ pub fn art() -> Html {
                     art.iter().map(|art| {
                         let style = format!("background-image: url({image});", image = art.image.clone());
                         html! {
-                            <a href="TODO" target="_blank" rel="noopener noreferrer" key={art.name.clone()} class="project" style={style}>
+                            <div class="project" style={style}>
                                 <div class="project-title">
                                     <p>{ format!("{name} ({date})", name = art.name.clone(), date = art.date.clone()) }</p>
                                 </div>
-                            </a>
+                            </div>
                         }
                     }).collect::<Html>()
                 } else {
