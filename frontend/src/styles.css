@@ -308,8 +308,14 @@ p {
 	margin: auto;
 }
 
+.project-repository-button * {
+	transition: color 0.05s ease-in-out;
+}
+
 .project-repository-button:hover * {
 	color: lightgray;
+
+	transition: color 0.05s ease-in-out;
 }
 
 .project-repository-outbound-link-icon {
