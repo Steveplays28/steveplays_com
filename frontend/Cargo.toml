@@ -5,5 +5,5 @@ edition.workspace = true
 
 [dependencies]
 common = { version = "*", path = "../common" }
-yew = { version = "0.21", features = ["hydration"] }
-yew-router = "0.18"
+yew = { version = "0.22", features = ["hydration"] }
+yew-router = "0.19"

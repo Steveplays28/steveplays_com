@@ -1,3 +1,4 @@
+use cruet::Inflector;
 use gloo_net::http::Request;
 use strum_macros::EnumString;
 use yew::{platform::spawn_local, prelude::*};
@@ -241,6 +242,18 @@ pub fn projects() -> Html {
                                     }
 
                                     <p>{ project.name.clone() }</p>
+                                </div>
+                                <div class="project-tags">
+                                    if let Some(project_links) = &project.links && let Some(project_repository_link) = &project_links.repository {
+                                        <a href={project_repository_link.clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project-tag">
+                                            <p>{ "View repository" }</p>
+                                        </a>
+                                    }
+                                    if let Some(project_tags) = &project.tags {
+                                        for tag in project_tags.iter().map(|tag| {tag.to_sentence_case()}).collect::<Vec<String>>() {
+                                            <p class="project-tag">{ tag }</p>
+                                        }
+                                    }
                                 </div>
                             </a>
                         }

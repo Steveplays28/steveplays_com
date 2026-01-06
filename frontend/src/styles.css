@@ -258,20 +258,50 @@ p {
 	margin-top: auto;
 	margin-right: auto;
 	margin-left: auto;
-	border-radius: 5px;
+
 	background-color: rgba(128, 128, 128, 0.5);
+	border-radius: 5px;
 	font-size: 1.5em;
 	text-align: center;
 }
 
 .project-title p {
 	margin: auto;
+	padding-left: 0.25em;
+	padding-right: 0.25em;
 }
 
 .project-icon {
 	width: auto;
 	height: 1.5em;
 	margin: auto;
+}
+
+.project-tags {
+	display: flex;
+	column-gap: 0.5rem;
+	position: relative;
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.project-tag {
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+	padding-left: 0.25em;
+	padding-right: 0.25em;
+
+	background-color: rgba(128, 128, 128, 0.5);
+	border-radius: 5px;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.project-tag p {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .projects {
