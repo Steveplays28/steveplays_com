@@ -187,6 +187,13 @@ pub fn art() -> Html {
                                 <div class="project-title">
                                     <p>{ format!("{name} ({date})", name = art.name.clone(), date = art.date.clone()) }</p>
                                 </div>
+                                <div class="project-tags">
+                                    if let Some(art_tags) = &art.tags {
+                                        for tag in art_tags.iter().map(|tag| {tag.to_sentence_case().to_lowercase()}) {
+                                            <p class="project-tag">{ tag }</p>
+                                        }
+                                    }
+                                </div>
                             </div>
                         }
                     }).collect::<Html>()
