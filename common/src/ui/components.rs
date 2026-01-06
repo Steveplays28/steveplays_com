@@ -233,9 +233,20 @@ pub fn projects() -> Html {
             {
                 if let Some(Ok(projects)) = projects_option.as_ref() {
                     projects.iter().map(|project| {
+                        let main_link = if let Some(project_links) = &project.links {
+                            if project_links.website.as_ref().is_some() {
+                                project_links.website.as_ref()
+                            } else if project_links.repository.as_ref().is_some() {
+                                project_links.repository.as_ref()
+                            } else {
+                                None
+                            }
+                        } else {
+                            None
+                        };
                         let style = if let Some(project_images) = &project.images && let Some(project_banner_image) = &project_images.banner { format!("background-image: url({image});", image = project_banner_image.clone()) } else { String::from("") };
                         html! {
-                            <a href={project.links.as_ref().expect("project should have links").website.as_ref().expect("project should have website link").clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project" style={style}>
+                            <a href={main_link.expect("project should have a website or repository link").clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project" style={style}>
                                 <div class="project-title">
                                     if let Some(project_images) = &project.images && let Some(project_icon_image) = &project_images.icon {
                                         <img src={project_icon_image.clone()} class="project-icon" />
