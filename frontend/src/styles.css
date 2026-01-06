@@ -279,6 +279,8 @@ p {
 
 .project-tags {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	column-gap: 0.5rem;
 	position: relative;
 	margin-top: 0.25em;
