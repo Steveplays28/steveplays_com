@@ -6,7 +6,8 @@
 		"banner": "https://github.com/steves-underwater-paradise/lodentityrendering/raw/c558329a0b3b5f3651aeafff7daea1615944ace4/docs/assets/banners/a_group_of_sheep.png"
 	},
 	"links": {
-		"website": "https://modrinth.com/mod/lodentityrendering"
+		"website": "https://modrinth.com/mod/lodentityrendering",
+		"repository": "https://github.com/steves-underwater-paradise/lodentityrendering"
 	},
 	"tags": ["modding"]
 }

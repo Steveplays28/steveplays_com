@@ -5,7 +5,8 @@
 		"banner": "https://github.com/Steveplays28/noisium/raw/516028d5a32874054859792473602ae8b189edeb/assets/banner/banner_without_author_text_1920x1080.png"
 	},
 	"links": {
-		"website": "https://modrinth.com/mod/noisium"
+		"website": "https://modrinth.com/mod/noisium",
+		"repository": "https://github.com/Steveplays28/noisium"
 	},
 	"tags": ["archived", "modding"]
 }

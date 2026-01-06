@@ -6,7 +6,8 @@
 		"banner": "https://github.com/Steveplays28/steveplays_com/raw/63552d2892811aec1a98ff8198fb179a378d98c6/frontend/resources/banners/steve_banner.png"
 	},
 	"links": {
-		"website": "https://ficsit.app/mod/FicsitChat"
+		"website": "https://ficsit.app/mod/FicsitChat",
+		"repository": "https://github.com/Steveplays28/FicsitChat"
 	},
 	"tags": ["modding"]
 }

@@ -17,7 +17,8 @@
 		"icon": "https://github.com/NucleoidMC/plasmid/raw/0bc1bc2a8e57dad54e069baedfbc15fae5e63c79/logo_512.png"
 	},
 	"links": {
-		"website": "https://github.com/NucleoidMC/plasmid"
+		"website": "https://modrinth.com/mod/plasmid",
+		"repository": "https://github.com/NucleoidMC/plasmid"
 	},
 	"tags": ["modding"]
 }

@@ -6,7 +6,8 @@
 		"banner": "https://github.com/steves-underwater-paradise/stevesrealisticsleep/raw/db61b90bd48fcfa050a3a89f72823e2270071448/docs/media/realistic_sleep.gif"
 	},
 	"links": {
-		"website": "https://modrinth.com/mod/stevesrealisticsleep"
+		"website": "https://modrinth.com/mod/stevesrealisticsleep",
+		"repository": "https://github.com/steves-underwater-paradise/stevesrealisticsleep"
 	},
 	"tags": ["modding"]
 }

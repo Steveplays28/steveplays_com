@@ -6,7 +6,8 @@
 		"banner": "https://github.com/steves-underwater-paradise/simple-seasons/raw/d2831d1d60f608ace0f41894cedab5887b21717b/docs/assets/banners/oak_and_spruce_taiga_forest_summer_bliss_shaders_banner.png"
 	},
 	"links": {
-		"website": "https://modrinth.com/mod/simple-seasons"
+		"website": "https://modrinth.com/mod/simple-seasons",
+		"repository": "https://github.com/steves-underwater-paradise/simple-seasons"
 	},
 	"tags": ["modding"]
 }

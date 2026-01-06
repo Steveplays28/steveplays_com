@@ -5,7 +5,8 @@
 		"banner": "https://github.com/Steveplays28/pathunderfencegates/raw/4c2c9c086a9d85f47e369fd2ef8f958e2b37650d/docs/media/all_fixes.png"
 	},
 	"links": {
-		"website": "https://modrinth.com/mod/pathunderfencegates"
+		"website": "https://modrinth.com/mod/pathunderfencegates",
+		"repository": "https://github.com/Steveplays28/pathunderfencegates"
 	},
 	"tags": ["modding"]
 }

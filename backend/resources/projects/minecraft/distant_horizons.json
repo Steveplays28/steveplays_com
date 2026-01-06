@@ -32,7 +32,8 @@
 		"banner": "https://wsrv.nl/?url=https%3A%2F%2Fmedia.forgecdn.net%2Fattachments%2F431%2F564%2Fcliff-side-2.png&n=-1"
 	},
 	"links": {
-		"website": "https://modrinth.com/mod/distanthorizons"
+		"website": "https://modrinth.com/mod/distanthorizons",
+		"repository": "https://gitlab.com/distant-horizons-team/distant-horizons"
 	},
 	"tags": ["modding"]
 }

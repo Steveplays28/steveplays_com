@@ -9,7 +9,8 @@
 		"banner": "https://github.com/steves-underwater-paradise/replete/raw/eb6c126de31f68892af16a93edc39129acb7b084/docs/assets/gallery_images/workshop_building_with_arrows_on_display.png"
 	},
 	"links": {
-		"website": "https://modrinth.com/resourcepack/replete"
+		"website": "https://modrinth.com/resourcepack/replete",
+		"repository": "https://github.com/steves-underwater-paradise/replete"
 	},
 	"tags": ["modding"]
 }

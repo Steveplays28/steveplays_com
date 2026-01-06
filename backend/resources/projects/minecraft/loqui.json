@@ -10,7 +10,8 @@
 		"banner": "https://github.com/The-Loqui-Project/Loqui/raw/7c62a7e9e994f8df0e23de6a8072210824cbc976/docs/media/banner.webp"
 	},
 	"links": {
-		"website": "https://staging-loqui.imb11.dev"
+		"website": "https://staging-loqui.imb11.dev",
+		"repository": "https://github.com/The-Loqui-Project/Loqui"
 	},
 	"tags": ["in_development"]
 }

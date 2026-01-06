@@ -14,7 +14,7 @@
 		"banner": "https://github.com/voxell-tech/bevy_motion_matching/raw/dab0065bcf267de4af3c5a1715a82fd304fe30d3/.github/assets/play-mode.png"
 	},
 	"links": {
-		"website": "https://github.com/voxell-tech/bevy_motion_matching"
+		"repository": "https://github.com/voxell-tech/bevy_motion_matching"
 	},
 	"tags": ["library"]
 }

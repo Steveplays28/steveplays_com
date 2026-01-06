@@ -17,6 +17,7 @@
 		"icon": "https://avatars.githubusercontent.com/u/988985"
 	},
 	"links": {
-		"website": "https://docker-minecraft-server.readthedocs.io"
+		"website": "https://docker-minecraft-server.readthedocs.io",
+		"repository": "https://github.com/itzg/docker-minecraft-server"
 	}
 }

@@ -6,7 +6,8 @@
 		"banner": "https://github.com/Steveplays28/blendium/raw/21f987c7a59369952fe172850d20f3f20b073b00/assets/gallery/blendium_1.png"
 	},
 	"links": {
-		"website": "https://modrinth.com/mod/blendium"
+		"website": "https://modrinth.com/mod/blendium",
+		"repository": "https://github.com/Steveplays28/blendium"
 	},
 	"tags": ["archived", "modding"]
 }
