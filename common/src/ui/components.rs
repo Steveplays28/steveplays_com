@@ -251,7 +251,7 @@ pub fn projects() -> Html {
                                         </a>
                                     }
                                     if let Some(project_tags) = &project.tags {
-                                        for tag in project_tags.iter().map(|tag| {tag.to_sentence_case()}).collect::<Vec<String>>() {
+                                        for tag in project_tags.iter().map(|tag| {tag.to_sentence_case().to_lowercase()}) {
                                             <p class="project-tag">{ tag }</p>
                                         }
                                     }
