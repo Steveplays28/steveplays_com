@@ -308,6 +308,10 @@ p {
 	margin: auto;
 }
 
+.project-repository-button:hover * {
+	color: lightgray;
+}
+
 .project-repository-outbound-link-icon {
 	height: 1em;
 	margin: auto;
