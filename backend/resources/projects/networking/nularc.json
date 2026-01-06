@@ -8,5 +8,6 @@
 	"links": {
 		"website": "https://steveplays28.github.io/nularc",
 		"repository": "https://github.com/Steveplays28/nularc"
-	}
+	},
+	"tags": ["library", "networking"]
 }

@@ -21,5 +21,6 @@
 	},
 	"links": {
 		"website": "https://github.com/terrarium-earth/cloche"
-	}
+	},
+	"tags": ["modding", "toolchain"]
 }
