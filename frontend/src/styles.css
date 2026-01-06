@@ -288,6 +288,9 @@ p {
 }
 
 .project-tag {
+	display: flex;
+	column-gap: 0.5rem;
+	position: relative;
 	margin-top: 0.25em;
 	margin-bottom: 0.25em;
 	padding-left: 0.25em;
@@ -300,8 +303,12 @@ p {
 }
 
 .project-tag p {
-	margin-top: 0;
-	margin-bottom: 0;
+	margin: auto;
+}
+
+.project-repository-outbound-link-icon {
+	height: 1em;
+	margin: auto;
 }
 
 .projects {

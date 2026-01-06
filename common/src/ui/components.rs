@@ -247,6 +247,7 @@ pub fn projects() -> Html {
                                     if let Some(project_links) = &project.links && let Some(project_repository_link) = &project_links.repository {
                                         <a href={project_repository_link.clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project-tag">
                                             <p>{ "View repository" }</p>
+                                            <img src="/resources/icons/outbound_link.svg" class="project-repository-outbound-link-icon"/>
                                         </a>
                                     }
                                     if let Some(project_tags) = &project.tags {
