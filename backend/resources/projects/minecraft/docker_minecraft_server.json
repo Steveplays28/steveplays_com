@@ -8,10 +8,10 @@
 	],
 	"contributors": [
 		{
-			"name": "GitHub contributors (>290 people)",
-			"website": "https://github.com/NucleoidMC/plasmid/graphs/contributors"
+			"name": "Contributors (>290)",
+			"website": "https://github.com/itzg/docker-minecraft-server/graphs/contributors"
 		},
-		{ "name": "Steveplays", "website": "https://steveplays.com" }
+		{ "name": "Steveplays (1 commit)", "website": "https://steveplays.com" }
 	],
 	"images": {
 		"icon": "https://avatars.githubusercontent.com/u/988985"

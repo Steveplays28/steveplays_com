@@ -8,10 +8,10 @@
 	],
 	"contributors": [
 		{
-			"name": "GitHub contributors",
+			"name": "Contributors (>30)",
 			"website": "https://github.com/NucleoidMC/plasmid/graphs/contributors"
 		},
-		{ "name": "Steveplays", "website": "https://steveplays.com" }
+		{ "name": "Steveplays (1 commit)", "website": "https://steveplays.com" }
 	],
 	"images": {
 		"icon": "https://github.com/NucleoidMC/plasmid/raw/0bc1bc2a8e57dad54e069baedfbc15fae5e63c79/logo_512.png"
@@ -20,5 +20,5 @@
 		"website": "https://modrinth.com/mod/plasmid",
 		"repository": "https://github.com/NucleoidMC/plasmid"
 	},
-	"tags": ["modding"]
+	"tags": ["library", "modding"]
 }

@@ -11,10 +11,11 @@
 		}
 	],
 	"contributors": [
-		{ "name": "SettingDust", "website": "https://github.com/SettingDust" },
-		{ "name": "Steveplays", "website": "https://steveplays.com" },
-		{ "name": "meowora", "website": "https://github.com/meowora" },
-		{ "name": "Serenity", "website": "https://github.com/invokekitty" }
+		{
+			"name": "Contributors (>2)",
+			"website": "https://github.com/terrarium-earth/cloche/graphs/contributors"
+		},
+		{ "name": "Steveplays (3 commits)", "website": "https://steveplays.com" }
 	],
 	"images": {
 		"icon": "https://avatars.githubusercontent.com/u/89703835"
