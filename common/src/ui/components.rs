@@ -6,6 +6,8 @@ use yew_router::prelude::*;
 
 use crate::data::project::Project;
 
+const STEVEPLAYS_AUTHOR_NAME: &str = "Steveplays";
+
 #[derive(Debug, Clone, Copy, PartialEq, Routable, EnumString)]
 pub enum Route {
     #[strum(serialize = "", ascii_case_insensitive)]
@@ -236,10 +238,24 @@ pub fn projects() -> Html {
         <>
             <h1 class="header-text">{"Projects"}</h1>
 
+            // TODO: Deduplicate the projects
             <div class="projects">
             {
                 if let Some(Ok(projects)) = projects_option.as_ref() {
-                    projects.iter().map(|project| {
+                    projects.iter().filter(|project| {
+                        let project_is_contribution = {
+                            let mut project_is_contribution = false;
+                            if let Some(project_contributors) = &project.contributors {
+                                for project_contributor in project_contributors {
+                                    if project_contributor.name.contains(STEVEPLAYS_AUTHOR_NAME) {
+                                        project_is_contribution = true;
+                                    }
+                                }
+                            }
+                            !project_is_contribution
+                        };
+                        project_is_contribution
+                    }).map(|project| {
                         let main_link = if let Some(project_links) = &project.links {
                             if project_links.website.as_ref().is_some() {
                                 project_links.website.as_ref()
@@ -260,6 +276,94 @@ pub fn projects() -> Html {
                                     }
 
                                     <p>{ project.name.clone() }</p>
+                                </div>
+                                <div class="project-tags">
+                                    if let Some(project_authors) = &project.authors && !(project_authors.len() <= 1 && project_authors.get(0).is_some_and(|project_author| project_author.name == STEVEPLAYS_AUTHOR_NAME)) {
+                                        for project_author in project_authors {
+                                            <p class="project-tag">{ project_author.name.clone() }</p>
+                                        }
+                                    }
+                                    if let Some(project_contributors) = &project.contributors {
+                                        for project_contributor in project_contributors {
+                                            <p class="project-tag">{ project_contributor.name.clone() }</p>
+                                        }
+                                    }
+                                </div>
+                                <div class="project-tags">
+                                    if let Some(project_links) = &project.links && let Some(project_repository_link) = &project_links.repository {
+                                        <a href={project_repository_link.clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project-tag project-repository-button">
+                                            <p>{ "View repository" }</p>
+                                            <img src="/resources/icons/outbound_link.svg" class="project-repository-outbound-link-icon"/>
+                                        </a>
+                                    }
+                                    if let Some(project_tags) = &project.tags {
+                                        for tag in project_tags.iter().map(|tag| {tag.to_sentence_case().to_lowercase()}) {
+                                            <p class="project-tag">{ tag }</p>
+                                        }
+                                    }
+                                </div>
+                            </a>
+                        }
+                    }).collect::<Html>()
+                } else {
+                    html! {
+                        <NoResponseText></NoResponseText>
+                    }
+                }
+            }
+            </div>
+
+            <h2 class="header-text">{"Contributions"}</h2>
+
+            <div class="projects">
+            {
+                if let Some(Ok(projects)) = projects_option.as_ref() {
+                    projects.iter().filter(|project| {
+                        let project_is_contribution = {
+                            let mut project_is_contribution = false;
+                            if let Some(project_contributors) = &project.contributors {
+                                for project_contributor in project_contributors {
+                                    if project_contributor.name.contains(STEVEPLAYS_AUTHOR_NAME) {
+                                        project_is_contribution = true;
+                                    }
+                                }
+                            }
+                            project_is_contribution
+                        };
+                        project_is_contribution
+                    }).map(|project| {
+                        let main_link = if let Some(project_links) = &project.links {
+                            if project_links.website.as_ref().is_some() {
+                                project_links.website.as_ref()
+                            } else if project_links.repository.as_ref().is_some() {
+                                project_links.repository.as_ref()
+                            } else {
+                                None
+                            }
+                        } else {
+                            None
+                        };
+                        let style = if let Some(project_images) = &project.images && let Some(project_banner_image) = &project_images.banner { format!("background-image: url({image});", image = project_banner_image.clone()) } else { String::from("") };
+                        html! {
+                            <a href={main_link.expect("project should have a website or repository link").clone()} target="_blank" rel="noopener noreferrer" key={project.name.clone()} class="project" style={style}>
+                                <div class="project-title">
+                                    if let Some(project_images) = &project.images && let Some(project_icon_image) = &project_images.icon {
+                                        <img src={project_icon_image.clone()} class="project-icon" />
+                                    }
+
+                                    <p>{ project.name.clone() }</p>
+                                </div>
+                                <div class="project-tags">
+                                    if let Some(project_authors) = &project.authors && !(project_authors.len() <= 1 && project_authors.get(0).is_some_and(|project_author| project_author.name == STEVEPLAYS_AUTHOR_NAME)) {
+                                        for project_author in project_authors {
+                                            <p class="project-tag">{ project_author.name.clone() }</p>
+                                        }
+                                    }
+                                    if let Some(project_contributors) = &project.contributors {
+                                        for project_contributor in project_contributors {
+                                            <p class="project-tag">{ project_contributor.name.clone() }</p>
+                                        }
+                                    }
                                 </div>
                                 <div class="project-tags">
                                     if let Some(project_links) = &project.links && let Some(project_repository_link) = &project_links.repository {
