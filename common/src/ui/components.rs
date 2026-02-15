@@ -243,18 +243,15 @@ pub fn projects() -> Html {
             {
                 if let Some(Ok(projects)) = projects_option.as_ref() {
                     projects.iter().filter(|project| {
-                        let project_is_contribution = {
-                            let mut project_is_contribution = false;
-                            if let Some(project_contributors) = &project.contributors {
-                                for project_contributor in project_contributors {
-                                    if project_contributor.name.contains(STEVEPLAYS_AUTHOR_NAME) {
-                                        project_is_contribution = true;
-                                    }
+                        let mut project_is_contribution = false;
+                        if let Some(project_contributors) = &project.contributors {
+                            for project_contributor in project_contributors {
+                                if project_contributor.name.contains(STEVEPLAYS_AUTHOR_NAME) {
+                                    project_is_contribution = true;
                                 }
                             }
-                            !project_is_contribution
-                        };
-                        project_is_contribution
+                        }
+                        !project_is_contribution
                     }).map(|project| {
                         let main_link = if let Some(project_links) = &project.links {
                             if project_links.website.as_ref().is_some() {
@@ -278,7 +275,7 @@ pub fn projects() -> Html {
                                     <p>{ project.name.clone() }</p>
                                 </div>
                                 <div class="project-tags">
-                                    if let Some(project_authors) = &project.authors && !(project_authors.len() <= 1 && project_authors.get(0).is_some_and(|project_author| project_author.name == STEVEPLAYS_AUTHOR_NAME)) {
+                                    if let Some(project_authors) = &project.authors && !(project_authors.len() <= 1 && project_authors.first().is_some_and(|project_author| project_author.name == STEVEPLAYS_AUTHOR_NAME)) {
                                         for project_author in project_authors {
                                             <p class="project-tag">{ project_author.name.clone() }</p>
                                         }
@@ -319,17 +316,14 @@ pub fn projects() -> Html {
             {
                 if let Some(Ok(projects)) = projects_option.as_ref() {
                     projects.iter().filter(|project| {
-                        let project_is_contribution = {
-                            let mut project_is_contribution = false;
-                            if let Some(project_contributors) = &project.contributors {
-                                for project_contributor in project_contributors {
-                                    if project_contributor.name.contains(STEVEPLAYS_AUTHOR_NAME) {
-                                        project_is_contribution = true;
-                                    }
+                        let mut project_is_contribution = false;
+                        if let Some(project_contributors) = &project.contributors {
+                            for project_contributor in project_contributors {
+                                if project_contributor.name.contains(STEVEPLAYS_AUTHOR_NAME) {
+                                    project_is_contribution = true;
                                 }
                             }
-                            project_is_contribution
-                        };
+                        }
                         project_is_contribution
                     }).map(|project| {
                         let main_link = if let Some(project_links) = &project.links {
@@ -354,7 +348,7 @@ pub fn projects() -> Html {
                                     <p>{ project.name.clone() }</p>
                                 </div>
                                 <div class="project-tags">
-                                    if let Some(project_authors) = &project.authors && !(project_authors.len() <= 1 && project_authors.get(0).is_some_and(|project_author| project_author.name == STEVEPLAYS_AUTHOR_NAME)) {
+                                    if let Some(project_authors) = &project.authors && !(project_authors.len() <= 1 && project_authors.first().is_some_and(|project_author| project_author.name == STEVEPLAYS_AUTHOR_NAME)) {
                                         for project_author in project_authors {
                                             <p class="project-tag">{ project_author.name.clone() }</p>
                                         }
