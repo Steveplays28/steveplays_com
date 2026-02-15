@@ -13,4 +13,4 @@ Made with [Yew](https://yew.rs) in [Rust](https://www.rust-lang.org), HTML, and 
 
 ## Attribution
 
-- [Color palette from Color Hunt](https://colorhunt.co/palette/635985443c6839305318122b)
+- [New Tab Icon](/resources/icons/outbound_link.svg) by Jonas Höbenreich, licensed under CC0 1.0 Universal, from [cc0-icons.jonh.eu](https://cc0-icons.jonh.eu/new-tab)

@@ -1,0 +1,13 @@
+{
+	"name": "Nularc",
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"icon": "https://github.com/Steveplays28/nularc/raw/362e27a277dae11e0ddde62cc94c41ee364be6c4/docs/img/icon_128x128.png",
+		"banner": "https://github.com/Steveplays28/steveplays_com/raw/63552d2892811aec1a98ff8198fb179a378d98c6/frontend/resources/banners/steve_banner.png"
+	},
+	"links": {
+		"website": "https://steveplays28.github.io/nularc",
+		"repository": "https://github.com/Steveplays28/nularc"
+	},
+	"tags": ["library", "networking"]
+}

@@ -1,0 +1,27 @@
+{
+	"name": "Cloche",
+	"authors": [
+		{
+			"name": "Ashley Wright",
+			"website": "https://msrandom.net"
+		},
+		{
+			"name": "Adrian O.V",
+			"website": "https://github.com/CodexAdrian"
+		}
+	],
+	"contributors": [
+		{
+			"name": "Contributors (>2)",
+			"website": "https://github.com/terrarium-earth/cloche/graphs/contributors"
+		},
+		{ "name": "Steveplays (3 commits)", "website": "https://steveplays.com" }
+	],
+	"images": {
+		"icon": "https://avatars.githubusercontent.com/u/89703835"
+	},
+	"links": {
+		"repository": "https://github.com/terrarium-earth/cloche"
+	},
+	"tags": ["modding", "toolchain"]
+}

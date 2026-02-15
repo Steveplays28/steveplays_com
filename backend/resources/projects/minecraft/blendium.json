@@ -1,5 +1,13 @@
 {
-	"name": "Blendium (archived)",
-	"link": "https://modrinth.com/mod/blendium",
-	"image": "https://github.com/Steveplays28/blendium/raw/21f987c7a59369952fe172850d20f3f20b073b00/assets/gallery/blendium_1.png"
+	"name": "Blendium",
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"icon": "https://github.com/Steveplays28/blendium/raw/c1752828338f024e0d4acc2a3e9d626ba7788e44/assets/icon/icon_128x128.png",
+		"banner": "https://github.com/Steveplays28/blendium/raw/21f987c7a59369952fe172850d20f3f20b073b00/assets/gallery/blendium_1.png"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/blendium",
+		"repository": "https://github.com/Steveplays28/blendium"
+	},
+	"tags": ["archived", "modding"]
 }

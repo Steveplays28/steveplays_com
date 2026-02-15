@@ -1,5 +1,13 @@
 {
 	"name": "Restart Server",
-	"link": "https://modrinth.com/mod/restart-server",
-	"image": "https://github.com/Steveplays28/restart-server/raw/67bc815074a98eef71f3a49ceb8ea29206f095d1/docs/media/command_preview.png"
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"icon": "https://github.com/steves-underwater-paradise/restart-server/raw/a1a8117325e9e24dfe934529c7d91f776c68baa1/docs/media/icon_128x128.png",
+		"banner": "https://github.com/steves-underwater-paradise/restart-server/raw/a1a8117325e9e24dfe934529c7d91f776c68baa1/docs/media/command_preview.png"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/restart-server",
+		"repository": "https://github.com/steves-underwater-paradise/restart-server"
+	},
+	"tags": ["modding"]
 }

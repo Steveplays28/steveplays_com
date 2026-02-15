@@ -1,5 +1,17 @@
 {
 	"name": "Loqui",
-	"link": "https://staging-loqui.imb11.dev",
-	"image": "https://github.com/The-Loqui-Project/Loqui/raw/477b43600741013a4e3dcb165bfeb8fbbb76e79a/docs/media/icon_1028x1028.png"
+	"authors": [
+		{ "name": "IMB11", "website": "https://github.com/IMB11" },
+		{ "name": "Rotgruengelb", "website": "https://linktr.ee/rotgruengelb" },
+		{ "name": "Steveplays", "website": "https://steveplays.com" }
+	],
+	"images": {
+		"icon": "https://github.com/The-Loqui-Project/Loqui/raw/477b43600741013a4e3dcb165bfeb8fbbb76e79a/docs/media/icon_1028x1028.png",
+		"banner": "https://github.com/The-Loqui-Project/Loqui/raw/7c62a7e9e994f8df0e23de6a8072210824cbc976/docs/media/banner.webp"
+	},
+	"links": {
+		"website": "https://staging-loqui.imb11.dev",
+		"repository": "https://github.com/The-Loqui-Project/Loqui"
+	},
+	"tags": ["proof_of_concept", "archived"]
 }

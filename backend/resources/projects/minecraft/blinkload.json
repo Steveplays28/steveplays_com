@@ -1,5 +1,16 @@
 {
-	"name": "BlinkLoad (co-developer)",
-	"link": "https://modrinth.com/mod/blinkload",
-	"image": "https://github.com/steves-underwater-paradise/blinkload/raw/c81287b1219442ede7a8ef0b44c10b1d15fbebf0/docs/assets/icon/icon_1080x1080.png"
+	"name": "BlinkLoad",
+	"authors": [
+		{ "name": "Bartol Jukica", "website": "https://bartbyte.com" },
+		{ "name": "Steveplays", "website": "https://steveplays.com" }
+	],
+	"images": {
+		"icon": "https://github.com/steves-underwater-paradise/blinkload/raw/c81287b1219442ede7a8ef0b44c10b1d15fbebf0/docs/assets/icon/icon_1080x1080.png",
+		"banner": "https://github.com/steves-underwater-paradise/blinkload/raw/c876c12719fdb529382a92dbac34276ed13e9e44/docs/benchmarks/benchmark.png"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/blinkload",
+		"repository": "https://github.com/steves-underwater-paradise/blinkload"
+	},
+	"tags": ["modding"]
 }

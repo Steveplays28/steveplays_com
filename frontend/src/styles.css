@@ -12,18 +12,14 @@ body {
 }
 
 body {
+	background: linear-gradient(105deg, #1c418d 0%, #7b95c7 100%);
+	background-size: 100% 100%;
 	background-position:
 		0 0,
 		0 0,
 		0 0,
 		0 0,
 		0 0;
-	background-size: 100% 100%;
-	background-image: linear-gradient(
-		125deg,
-		rgba(24, 18, 43, 1) 0%,
-		rgba(57, 48, 83, 1) 100%
-	);
 	perspective: 25em;
 	font-family: "Rubik", sans-serif;
 
@@ -110,6 +106,48 @@ a {
 	font-size: clamp(2rem, 1.5vw, 5rem);
 }
 
+.button-grid {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 2vw;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin-top: 10vh;
+	margin-left: 10vw;
+	margin-right: 10vw;
+}
+
+.button {
+	background-color: transparent;
+	backdrop-filter: grayscale(12.5%);
+	border: solid #afd3fd 5px;
+	border-radius: 1em;
+	padding: 1em;
+
+	transition: border-color 0.05s ease-in-out;
+}
+
+.button:hover {
+	border-color: #82bafd;
+
+	transition: border-color 0.05s ease-in-out;
+}
+
+.button * {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: clamp(2rem, 1.5vw, 5rem);
+
+	transition: color 0.05s ease-in-out;
+}
+
+.button:hover * {
+	color: lightgray;
+
+	transition: color 0.05s ease-in-out;
+}
+
 .no-response {
 	color: lightgray;
 	font-size: larger;
@@ -141,18 +179,23 @@ p {
 }
 
 .nav-bar {
+	background: linear-gradient(
+		105deg,
+		#8f079c 0%,
+		#9c076c 33.33%,
+		#c00a86 66.67%,
+		#e60ba1 100%
+	);
+	border-bottom: solid #e5e7ec 1px;
 	color: white;
-	background-color: transparent;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
 	column-gap: 1vw;
 	height: 5rem;
-	margin-left: 10vw;
-	margin-right: 10vw;
-
-	backdrop-filter: grayscale(25%);
+	padding-left: 10vw;
+	padding-right: 10vw;
 }
 
 .nav-bar .socials {
@@ -164,21 +207,24 @@ p {
 }
 
 .nav-bar-element a {
-	color: white;
 	text-decoration: none;
+}
 
-	transition: color 0.1s ease-in-out;
+.nav-bar-element a p {
+	color: white;
+
+	transition: color 0.05s ease-in-out;
+}
+
+.nav-bar-element:hover a p {
+	color: lightgray;
+
+	transition: color 0.05s ease-in-out;
 }
 
 .nav-bar-element a p {
 	margin-top: 0;
 	margin-bottom: 0;
-}
-
-.nav-bar-element a:hover {
-	color: lightgray;
-
-	transition: color 0.1s ease-in-out;
 }
 
 .project {
@@ -187,40 +233,94 @@ p {
 	flex-direction: column;
 	aspect-ratio: 16/9;
 	width: 19.25vw;
-	background-color: #443c68;
+	background-color: transparent;
+	backdrop-filter: grayscale(25%);
 	color: white;
-	animation: fade-in 0.5s ease-in-out;
-	animation-fill-mode: both;
 	border-radius: 5px;
-	background-image: url("https://github.com/Steveplays28/realisticsleep/blob/main/docs/media/realistic_sleep.gif?raw=true");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
 	text-decoration: none;
 
-	transition:
-		filter 0.1s ease-in-out,
-		transform 0.1s ease-in-out;
+	transition: filter 0.1s ease-in-out;
 }
 
 .project:hover {
 	filter: brightness(125%);
-	transform: translateY(-2vh);
 
-	transition:
-		filter 0.1s ease-in-out,
-		transform 0.1s ease-in-out;
+	transition: filter 0.1s ease-in-out;
 }
 
 .project-title {
+	display: flex;
+	column-gap: 0.5rem;
 	position: relative;
 	margin-top: auto;
 	margin-right: auto;
 	margin-left: auto;
-	border-radius: 5px;
+
 	background-color: rgba(128, 128, 128, 0.5);
+	border-radius: 5px;
 	font-size: 1.5em;
 	text-align: center;
+}
+
+.project-title p {
+	margin: auto;
+	padding-left: 0.25em;
+	padding-right: 0.25em;
+}
+
+.project-icon {
+	width: auto;
+	height: 1.5em;
+	margin: auto;
+}
+
+.project-tags {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	column-gap: 0.5rem;
+	position: relative;
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.project-tag {
+	display: flex;
+	column-gap: 0.5rem;
+	position: relative;
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+	padding-left: 0.25em;
+	padding-right: 0.25em;
+
+	background-color: rgba(128, 128, 128, 0.5);
+	border-radius: 5px;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.project-tag p {
+	margin: auto;
+}
+
+.project-repository-button * {
+	transition: color 0.05s ease-in-out;
+}
+
+.project-repository-button:hover * {
+	color: lightgray;
+
+	transition: color 0.05s ease-in-out;
+}
+
+.project-repository-outbound-link-icon {
+	height: 1em;
+	margin: auto;
 }
 
 .projects {
@@ -266,15 +366,22 @@ p {
 	height: 100%;
 }
 
-.contact-text {
+.header-text {
 	text-align: center;
 	margin-top: 10vh;
 	margin-left: 10vw;
 	margin-right: 10vw;
 }
 
-.title {
+h1 {
+	font-weight: normal;
 	font-size: 7.5em;
+	margin-bottom: 2.5vh;
+}
+
+h2 {
+	font-weight: normal;
+	font-size: 7em;
 	margin-bottom: 2.5vh;
 }
 
@@ -306,6 +413,10 @@ p {
 	.profile-picture-container {
 		width: 20vw;
 		height: 20vw;
+	}
+
+	.button * {
+		font-size: clamp(0.5rem, 2.75vw, 1.6rem);
 	}
 
 	.project {

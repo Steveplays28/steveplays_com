@@ -1,5 +1,13 @@
 {
 	"name": "FICSIT.chat",
-	"link": "https://ficsit.app/mod/FicsitChat",
-	"image": "https://github.com/Steveplays28/FicsitChat/raw/bc7439443f313c6cc5fbc5c74706bbe79c5a6957/assets/ficsit_chat_icon_512x512.png"
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"icon": "https://github.com/Steveplays28/FicsitChat/raw/bc7439443f313c6cc5fbc5c74706bbe79c5a6957/assets/ficsit_chat_icon_128x128.png",
+		"banner": "https://github.com/Steveplays28/steveplays_com/raw/63552d2892811aec1a98ff8198fb179a378d98c6/frontend/resources/banners/steve_banner.png"
+	},
+	"links": {
+		"website": "https://ficsit.app/mod/FicsitChat",
+		"repository": "https://github.com/Steveplays28/FicsitChat"
+	},
+	"tags": ["modding"]
 }

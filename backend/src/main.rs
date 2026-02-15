@@ -4,7 +4,7 @@ use std::str::FromStr;
 
 use backend::cli::arguments::ARGS;
 use backend::routes::index::{self};
-use common::ui::components::{switch, NavBar, Route};
+use common::ui::components::{NavBar, Route, switch};
 use normpath::PathExt;
 use rocket::fs::FileServer;
 use rocket::http::Method;
@@ -12,8 +12,8 @@ use rocket::http::Status;
 use rocket::response::content::RawHtml;
 use rocket::route::{Handler, Outcome};
 use rocket::{Data, Request};
-use yew::prelude::*;
 use yew::ServerRenderer;
+use yew::prelude::*;
 use yew_router::history::AnyHistory;
 use yew_router::history::History;
 use yew_router::history::MemoryHistory;
@@ -81,7 +81,7 @@ async fn render(path: PathBuf) -> RawHtml<String> {
 fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![status])
-        .mount("/index", routes![index::projects])
+        .mount("/index", routes![index::art, index::projects])
         .mount(
             "/projects",
             FileServer::from(

@@ -1,5 +1,13 @@
 {
-	"name": "Biome Fog (archived)",
-	"link": "https://modrinth.com/mod/biomefog",
-	"image": "https://github.com/Steveplays28/biomefog/raw/4e64e399cb9d745bcfde4f02493be7c51377cf18/docs/media/desert.png"
+	"name": "Biome Fog",
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"icon": "https://github.com/Steveplays28/biomefog/raw/4e64e399cb9d745bcfde4f02493be7c51377cf18/docs/media/icon_512x512.png",
+		"banner": "https://github.com/Steveplays28/biomefog/raw/4e64e399cb9d745bcfde4f02493be7c51377cf18/docs/media/desert.png"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/biomefog",
+		"repository": "https://github.com/Steveplays28/biome-fog"
+	},
+	"tags": ["archived", "modding"]
 }

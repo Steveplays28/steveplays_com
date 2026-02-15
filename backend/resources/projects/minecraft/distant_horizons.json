@@ -1,5 +1,30 @@
 {
-	"name": "Distant Horizons (contributor)",
-	"link": "https://modrinth.com/mod/distanthorizons",
-	"image": "https://wsrv.nl/?url=https%3A%2F%2Fmedia.forgecdn.net%2Fattachments%2F431%2F564%2Fcliff-side-2.png&n=-1"
+	"name": "Distant Horizons",
+	"authors": [
+		{ "name": "James Seibel", "website": "https://gitlab.com/jeseibel" },
+		{ "name": "cola98765", "website": "https://github.com/cola98765" },
+		{ "name": "coolGi", "website": "https://github.com/coolGi69" },
+		{ "name": "Jim C K Flaten", "website": "https://gitlab.com/jckf" },
+		{ "name": "Leonardo Amato", "website": "https://gitlab.com/Morippi" },
+		{ "name": "Ran", "website": "https://gitlab.com/_Ran" },
+		{ "name": "s809", "website": "https://gitlab.com/s809" },
+		{ "name": "TomTheFurry", "website": "https://gitlab.com/TomTheFurry" },
+		{ "name": "Leetom" }
+	],
+	"contributors": [
+		{
+			"name": "Contributors (>30)",
+			"website": "https://gitlab.com/distant-horizons-team/distant-horizons/-/graphs/main"
+		},
+		{ "name": "Steveplays (22 commits)", "website": "https://steveplays.com" }
+	],
+	"images": {
+		"icon": "https://gitlab.com/distant-horizons-team/distant-horizons-core/-/raw/ba923fa829662150d44014a11e212d650d4c1d2f/_Misc%20Files/logo%20files/new/SVG/Distant-Horizons-M.svg",
+		"banner": "https://wsrv.nl/?url=https%3A%2F%2Fmedia.forgecdn.net%2Fattachments%2F431%2F564%2Fcliff-side-2.png&n=-1"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/distanthorizons",
+		"repository": "https://gitlab.com/distant-horizons-team/distant-horizons"
+	},
+	"tags": ["modding"]
 }

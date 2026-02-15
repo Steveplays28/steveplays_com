@@ -1,5 +1,16 @@
 {
-	"name": "Replete (co-author)",
-	"link": "https://modrinth.com/resourcepack/replete",
-	"image": "https://github.com/steves-underwater-paradise/replete/raw/eb6c126de31f68892af16a93edc39129acb7b084/docs/assets/gallery_images/workshop_building_with_arrows_on_display.png"
+	"name": "Replete",
+	"authors": [
+		{ "name": "GrandmaPork", "website": "https://github.com/GrandmaPork" },
+		{ "name": "Steveplays", "website": "https://steveplays.com" }
+	],
+	"images": {
+		"icon": "https://github.com/steves-underwater-paradise/replete/raw/b3a6af388225fcd763328447a9452bfaa4628d41/docs/assets/icon/icon_128x128.png",
+		"banner": "https://github.com/steves-underwater-paradise/replete/raw/eb6c126de31f68892af16a93edc39129acb7b084/docs/assets/gallery_images/workshop_building_with_arrows_on_display.png"
+	},
+	"links": {
+		"website": "https://modrinth.com/resourcepack/replete",
+		"repository": "https://github.com/steves-underwater-paradise/replete"
+	},
+	"tags": ["modding"]
 }

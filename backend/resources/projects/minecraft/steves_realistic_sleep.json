@@ -1,5 +1,13 @@
 {
 	"name": "Steve's Realistic Sleep",
-	"link": "https://modrinth.com/mod/stevesrealisticsleep",
-	"image": "https://github.com/Steveplays28/stevesrealisticsleep/raw/b8ee9e6f00b22a2da50fb73342f7844f94f896e5/docs/media/realistic_sleep.gif"
+	"authors": [{ "name": "Steveplays", "website": "https://steveplays.com" }],
+	"images": {
+		"icon": "https://github.com/steves-underwater-paradise/stevesrealisticsleep/raw/db61b90bd48fcfa050a3a89f72823e2270071448/docs/media/icon_128x128.png",
+		"banner": "https://github.com/steves-underwater-paradise/stevesrealisticsleep/raw/db61b90bd48fcfa050a3a89f72823e2270071448/docs/media/realistic_sleep.gif"
+	},
+	"links": {
+		"website": "https://modrinth.com/mod/stevesrealisticsleep",
+		"repository": "https://github.com/steves-underwater-paradise/stevesrealisticsleep"
+	},
+	"tags": ["modding"]
 }
