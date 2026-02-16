@@ -410,6 +410,9 @@ pub fn contact() -> Html {
                 <a href="https://gitlab.com/steveplays" target="_blank" rel="noopener noreferrer">
                     <img src="/resources/logos/gitlab-logo-700.svg" />
                 </a>
+                <a href="https://codeberg.org/steveplays" target="_blank" rel="noopener noreferrer">
+                    <img src="/resources/logos/codeberg-logo_icon_white.svg" />
+                </a>
                 <div class="gap"></div>
 
                 <a href="https://steveplays.itch.io" target="_blank" rel="noopener noreferrer">
